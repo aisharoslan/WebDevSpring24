@@ -1,4 +1,4 @@
-# Fruit Tart Recipe [Source](https://www.culinaryhill.com/fresh-fruit-tart/)
+# Fruit Tart Recipe [(Source)](https://www.culinaryhill.com/fresh-fruit-tart/)
 ![Fresh Fruit Tart with seasonal fruits.](./img/fruit.jpeg)
 
 ## Description
