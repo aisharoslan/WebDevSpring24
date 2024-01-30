@@ -15,21 +15,21 @@ Fresh Fruit Tarts are a professional-looking dessert that *anyone* can master. I
 ## Ingredients
 
 ### For the pastry cream:
-- \frac{1}{2} vanilla bean
+- 1/2 vanilla bean
 - 2 cups whole milk
 - 1 cup granulated sugar
 - 6 egg yolks
-- \frac{1}{4} cup cornstarch
-- \frac{1}{4} teaspoon salt
+- 1/4 cup cornstarch
+- 1/4 teaspoon salt
 
 ### For the tart dough:
 - 7 tablespoons butter softened
-- \frac{1}{2} cup powdered sugar
+- 1/2 cup powdered sugar
 - 1 egg
-- \frac{1}{2} teaspoon vanilla extract
-- \frac{1}{4} teaspoon salt
-- \frac{1}{4} cups all-purpose flour sifted
-- \frac{1}{4} teaspoon baking powder
+- 1/2 teaspoon vanilla extract
+- 1/4 teaspoon salt
+- 1/4 cups all-purpose flour sifted
+- 1/4 teaspoon baking powder
 
 ### For the fruit tart:
 - 1 pint fresh cut fruit assortment
