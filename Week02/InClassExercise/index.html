@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- basic tags for <head> section - charset, name, title -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HTML Form Elements</title>
+  </head>
+  <body>
+    <!-- command/ctrl / to comment in any lang. -->
+    <!-- target _blank? QUESTION -->
+    <p>Here is a form containing basic input types. For more information on HTML form elements/tags see <a href="https://www.w3schools.com/html/html_form_elements.asp" target="_blank">w3 schools forms elements</a></p>
+
+    <!-- action is either where u wanna send inputs to or to send to API -->
+    <!-- the form action usually contains a link to the file or API url/endpoint to process the form data, e.g. processData.php -->
+    <!-- GET/PUT/POST - get to get data, post is to send data somewhere -->
+    <!-- name your forms so that not confused! -->
+    <!-- target either to refresh page (self) or maybe go to a new page when success -->
+    <!-- when wrap -> it dictates behavior of form, like react it gives u submit to enter? -->
+    <!-- fieldset is a group of inputs -->
+    <!-- input dictates behavior -->
+    <!-- for attr in label and name,id attr in input need to MATCH - easy for accessibility - autocomplete comes up bc same "for, name, id attr" -->
+    <!-- maxlength attr for input -->
+    <!-- placeholder is just a suggestion - greyed out like Jane Doe -->
+    <!-- required field -->
+    <!-- name="password" gives default password styling -->
+    <!-- textarea has a flex box that can change size -->
+    <!-- value attr in input is what the API wants, so make sure values are changed! but when submit, they all go to the same "Pet"s name column - take it as an array-->
+    <!-- if diff name for group name, it could cause ur radio buttons to click more than 1 -->
+    <!-- select tag - bunch of options in it -->
+    <!-- make sure name and for is same, then value diff - for label, select, option -->
+    <!-- input has so many attributes, e.g. pattern for phone -->
+    <form action="#" method="POST" name="sampleForm" target="_self">
+      <fieldset>
+        <legend>Simple Input Elements</legend>
+        <p>The box and title of this form group are created by the fieldset and legend tags.</p>
+        <label for="firstName">First Name</label>
+        <input name="firstName" id="firstName" type="text"/> 
+        <br />
+        <label for="lastName">Last Name</label>
+        <input name="lastName" id="lastName" type="text" placeholder="Smith" maxlength="5"/> 
+        <br />
+        <label for="age">How old are you?</label>
+        <input name="age" type="number" step="2" min="0" max="100"/>
+        <!-- number gives the up down arrow to inc/dec by step - still string -->
+        <br />
+        <label for="password">Enter Password</label>
+        <input name="password" type="password" required/> 
+      </fieldset>
+
+      <fieldset>
+        <legend>Text Areas</legend>
+        <p>Text areas are great for longer text. Sometimes you need to enter full sentences or paragraphs.</p>
+        <label for="whyIDM">Why did you apply to IDM?</label>
+        <textarea name="whyIDM" cols="50" rows="10"></textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend>Check Boxes</legend>
+        <p>Check boxes allow the user to select more than one option at once. Check boxes in the same group have the same name, but different values!</p>
+        <label for="Pet">What pets do you have?</label>
+        <br />
+        <input type="checkbox" name="Pet" value="dog" /> DOG
+        <br />
+        <input type="checkbox" name="Pet" value="cat" /> CAT
+        <br />
+        <input type="checkbox" name="Pet" value="chicken" /> CHICKEN
+        <br />
+        <input type="checkbox" name="Pet" value="snake" /> SNAKE
+      </fieldset>
+
+      <fieldset>
+        <legend>Radio Buttons</legend>
+        <p>Radio Buttons ONLY allow the user to select ONE option at once. Radio Buttons in the same group have the same name, but different values!</p>
+        <label for="favPet">What's your favorite pet?</label>
+        <br />
+        <input type="radio" name="favPet" value="dog" /> DOG
+        <br />
+        <input type="radio" name="favPet" value="cat" /> CAT
+        <br />
+        <input type="radio" name="favPet" value="chicken" /> CHICKEN
+        <br />
+        <input type="radio" name="favPet" value="snake" /> SNAKE
+      </fieldset>
+
+      <p>Select Options aka Dropdowns</p>
+      <p>Using the select and option tags you can add items to a dropdown menu</p>
+      <label for="state">Pick a State</label>
+      <br />
+      <select name="state">
+        <option value="NY">New York</option>
+        <option value="NJ">New Jersey</option>
+        <option value="NM">New Mexico</option>
+        <option value="NH">New Hampshire</option>
+        <!-- can group options too with optiongroup tag -->
+      </select>
+
+      <p>Finally, we need a button to submit our form!</p>
+      <input type="button" value="Submit Form" name="submit"/> 
+      <button role="button" disabled>Submit</button> 
+      <!-- disabled - cannot press on it - x allow to click until required fields are filled -->
+      <!-- input displayed as button, or actual button tag - both same but if use input type button with a value of Submit and name submit - what we display to user is what shows up in value-->
+
+      <br />
+      <br />
+      <br />
+      <br />
+
+    </form>
+  </body>
+</html>
+
+<!-- semantic html - make things look better - css - diff ways to do layout etc - more fun examples -->
