@@ -6,8 +6,6 @@ Loaded with a lush assortment of seasonal berries and other fruit, there’s not
 
 Fresh Fruit Tarts are a professional-looking dessert that *anyone* can master. If you’ve never gotten the hang of crumb coats on cakes or pastry bags full of frosting, fear not. This is a dessert you can handle.
 
----
-
 ## Equipment
 - Tart Pan
 - Stand Mixer
@@ -17,21 +15,21 @@ Fresh Fruit Tarts are a professional-looking dessert that *anyone* can master. I
 ## Ingredients
 
 ### For the pastry cream:
-- /frac{1}{2} vanilla bean
+- \frac{1}{2} vanilla bean
 - 2 cups whole milk
 - 1 cup granulated sugar
 - 6 egg yolks
-- /frac{1}{4} cup cornstarch
-- /frac{1}{4} teaspoon salt
+- \frac{1}{4} cup cornstarch
+- \frac{1}{4} teaspoon salt
 
 ### For the tart dough:
 - 7 tablespoons butter softened
-- /frac{1}{2} cup powdered sugar
+- \frac{1}{2} cup powdered sugar
 - 1 egg
-- /frac{1}{2} teaspoon vanilla extract
-- /frac{1}{4} teaspoon salt
-- /frac{1}{4} cups all-purpose flour sifted
-- /frac{1}{4} teaspoon baking powder
+- \frac{1}{2} teaspoon vanilla extract
+- \frac{1}{4} teaspoon salt
+- \frac{1}{4} cups all-purpose flour sifted
+- \frac{1}{4} teaspoon baking powder
 
 ### For the fruit tart:
 - 1 pint fresh cut fruit assortment
