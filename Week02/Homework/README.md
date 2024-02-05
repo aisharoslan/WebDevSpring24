@@ -1,5 +1,5 @@
 # 1. Site Map
-<img src="sitemap.png" alt="Simply Recipes Site Map" width="50%" height="50%" />
+<img src="sitemap.png" alt="Simply Recipes Site Map" width="80%" height="40%" />
 
 # 2. Article Reaction
 I learned that wireframing involves a lot of communication and iterative work. 
