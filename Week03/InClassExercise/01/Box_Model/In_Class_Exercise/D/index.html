@@ -3,18 +3,80 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Box Model w/ Inline-Block</title>
+    <title>Simple Navbar Using Inline Block</title>
+    <!-- internal style sheet with google font import -->
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
+
+      /* universal selector - to reset browser defaults */
+      * {
+        margin: 0; 
+        padding: 0;
+      }
+
+      ul {
+        /* gets rid off filled in circle - there's a ton of options */
+        list-style-type: none;
+        /* same as saying 999999 - can even do alphatransparency here */
+        /* only take up as much height as content */
+        background-color: #999;
+        /* anything overflowin beyond 10px gets cut off */
+        /* overflow: hidden; 
+        height: 10px; */
+        /* can stack next to each other - inline, there's a slight space between letters, for math to be perfect - three 300px boxes in 900px container - x work bc of letter spacing - only when u do INLINE BLOCK */
+        /* parent elements of items that display inline block may need to have the font size zeroed out to remove the space between "characters" */
+        font-size: 0; 
+        /* y-direction was the font filling it - so we need to make the child element so that it's visible */
+        font-family: 'Single Day', cursive;
+        /* x, y, optional blur, optional spread, color, no need alpha cause alrdy using blue */
+        box-shadow: 5px 5px 15px 5px #333;
+      }
+
+      li {
+        display: inline-block;
+        /* 1em doesn't work cause parent font size only 0, so use rem or px*/
+        font-size: 16px;
+      }
+
+      /* descendant selector */
+      /* or nav ul li a or nav li a*/
+      li a {
+        /* want padding! */
+        /* can click on entire block rather than just the text link */
+        display: block; 
+        text-align: center;
+        /* baseline width */
+        width: 100px;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+      }
+
+      /* there's a diff between a.active and a .active */
+      /* a.active -> anchor tag w active class */
+      /* a .active -> anchor tag that has something inside with an active class */
+      li a.active {
+        background-color: rgba(255, 0, 0, 0.3);
+      }
+
+      /* hover on an anchor tag */
+      /* could also do li:hover a for smth diff */
+      li a:hover {
+        background-color: #111;
+        color: white;
+      }
+
+    </style>
   </head>
   <body>
-    <h1>Heading 1 Displays Block</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id massa ac erat pharetra viverra. Phasellus vel accumsan turpis. Proin porta, turpis in dapibus varius, diam orci volutpat lorem, eget gravida diam diam in neque.</span> Curabitur enim dolor, fringilla sit amet metus lobortis, faucibus varius nisl. Phasellus eu nisi vel arcu tempor finibus faucibus nec libero. Cras dignissim quis enim et tincidunt. Donec sodales consequat diam, id sollicitudin tellus aliquam sed. Curabitur faucibus ex consectetur sem porta dictum. Nam quis viverra lacus.
-    </p>
-    <p>
-      Pellentesque pellentesque, mi vel vestibulum congue, orci massa posuere neque, volutpat rutrum sapien leo at lacus. Mauris vel justo aliquet, ornare tortor vel, mollis ex. Nullam placerat pellentesque orci. Proin rutrum accumsan odio eget tempor. Duis ornare diam sit amet hendrerit commodo. Cras quis libero sed justo vulputate volutpat eget dictum nunc. Sed lacinia sem ut tempor convallis. Sed varius tempus metus et pharetra. Etiam sagittis ligula vel sapien fermentum, non dictum lectus blandit. Sed mollis arcu quis felis placerat lobortis. Cras neque metus, malesuada nec nulla quis, hendrerit malesuada odio. Vestibulum bibendum feugiat cursus.
-    </p>
-    <p>
-      Morbi ac auctor dolor. Proin at cursus arcu. Curabitur ac malesuada metus, quis pretium ipsum. Sed iaculis, massa quis maximus condimentum, nisi orci iaculis elit, et cursus massa orci in quam. In sodales nunc rhoncus lorem cursus, ut euismod tellus cursus. Cras sem tellus, feugiat eu arcu a, porttitor placerat lacus. Donec nisi libero, facilisis ac fringilla vel, rutrum in diam. Nulla efficitur volutpat dignissim. Sed sed odio ut tortor auctor tempor eu quis tellus. Proin ut purus eleifend, rutrum magna nec, ullamcorper felis. Vivamus ac ante aliquam, gravida massa nec, porta ante. Fusce bibendum tincidunt mauris fringilla ornare. Quisque lacinia, tortor ultricies sollicitudin egestas, quam ex feugiat nisi, eget bibendum urna mi vitae libero. Suspendisse congue, nisi in tincidunt laoreet, lectus enim viverra neque, at fermentum neque odio eu risus.
-    </p>
+    <!-- inline, block or inline block -->
+    <nav>
+      <ul>
+        <li><a href="#">Link 1</a></li>
+        <li><a href="#">Link 2</a></li>
+        <li><a href="#" class="active">Link 3</a></li>
+        <li><a href="#">Link 4</a></li>
+      </ul>
+    </nav>
   </body>
 </html>

@@ -4,8 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Intro to CSS Text and Spans</title>
+    <!-- linking to externally hosted google font style sheets but DONT WANT BC UGLY but use it for inline styling that's internal -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet"> -->
     <!-- internal style sheet, these styles only apply to this file -->
     <style type="text/css">
+      /* use import from google fonts */
+      @import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
       /* universal selector - for EVERYTHING ON PAGE */
       /* margin: 0 means 0 on all sides */
       * {
@@ -28,12 +34,18 @@
         /* x-direction, y-direction, blur - can use negative no. too - like vectors, can choose red - but we need a blur!*/
         /* x y blur color , RGBA another option if x want blur: 1 - transparent, 0 - opaque */
         text-shadow: 4px 4px 10px red;
+        font-weight: 200;
       }
 
       p {
         margin: 0.5em 0;
         /* default is 1 - basicaly like line spacing - good for lining things up */
-        line-height: 2;
+        line-height: 1.3;
+      }
+
+      /* anchor tags outside of paragraphs - less specific  */
+      a {
+        color: violet;
       }
 
       /* no spaces in class names! */
@@ -41,6 +53,24 @@
         font-family: fantasy;
         /* text color */
         color: green;
+      }
+
+      /* one instance of an id per page */
+      #important_text {
+        /* if locally -  download font, but our case, just add then just copy link - more custom fonts - in quotes - if still x hv, use sans-serif */
+        font-family: 'Protest Guerrilla', sans-serif;
+        /* 100-900 (100 lightest, 400 regular, >400 bolder) but for this font, only hv 400 - but u can do it for more widely used fonts*/
+        /* font-weight: 200; */
+        /* different than text decoration/style, capitalize only first letter, uppercase - all */
+        text-transform: uppercase;
+      }
+
+      /* descendant selector looking for only anchor <a> tags in paragraph <p> tags - NO COMMAS!, that's just grouping*/
+      p a {
+        /* mixing light in rgb, not pigments! */
+        color: rgba(255, 102, 0, 0.5);
+        /* removes the underline under link but the mickey mouse hand (cursor pointer) will be there */
+        text-decoration: none; 
       }
     </style>
   </head>
@@ -52,12 +82,10 @@
     <p>
       Vivamus laoreet, eros quis tincidunt aliquam, orci nisl egestas lacus, sit
       amet eleifend dolor leo ultricies enim. Nunc mauris neque, iaculis in
-      ullamcorper feugiat, rhoncus et mauris. Aenean sem sem, congue vel
-      fringilla sed, ultrices rutrum purus. Phasellus luctus quam ut placerat
-      sagittis. Mauris vitae faucibus quam, sit amet accumsan magna. Cras nec
-      tempus ligula. Pellentesque a semper arcu.
+      ullamcorper feugiat, rhoncus et mauris. <span class="silly_font"> Aenean sem sem, congue vel fringilla sed, ultrices rutrum purus. Phasellus luctus quam ut placerat sagittis. </span> Mauris vitae faucibus quam, sit amet accumsan magna. Cras nec tempus ligula. <a href="#"> Pellentesque a semper arcu.</a> 
+      <!-- # means do nothing for href -->
     </p>
-    <p>
+    <p id="important_text">
       Maecenas a nulla et nisi tristique ultricies. Etiam ut justo lacus. Duis
       eu mauris eu mi finibus efficitur sed vel elit. Aenean vitae varius urna.
       Nulla maximus tincidunt ipsum, a viverra nibh. Aliquam faucibus metus id
@@ -65,5 +93,6 @@
       dignissim sed. Etiam maximus mi nulla, efficitur volutpat urna tincidunt
       eu. Praesent ut ligula libero.
     </p>
+    <a href="#">Link outside of p tag</a>
   </body>
 </html>
