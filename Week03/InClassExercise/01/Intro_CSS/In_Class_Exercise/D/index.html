@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Intro to CSS Text and Spans</title>
+    <!-- internal style sheet, these styles only apply to this file -->
+    <style type="text/css">
+      /* universal selector - for EVERYTHING ON PAGE */
+      /* margin: 0 means 0 on all sides */
+      * {
+        margin: 0; 
+      }
+      /* tag/element/type selector */
+      /* can edit on actual page too but if refresh, not permanent changes */
+      h1 {
+        /* apply one side at a time individually */
+        margin-top: 1em;
+        /* 2 values means top&bottom (16px) left&right (8px) */
+        margin: 1em 0.5em;
+        /* 3 values, the second value will be right&left */
+        /* 4 values start at top and goes clockwise, top, right, bottom, left */
+        margin: 2em 0.5em 1em 0.5em; 
+        /* it will inherit the BOTTOM MOST! */
+        /* TNR - default font */
+        /* order is precedence, e.g. if Helvetica N/A on browser, then use Arial, if Arial N/A, then use sans-serif */
+        font-family: Helvetica, Arial, sans-serif;
+        /* x-direction, y-direction, blur - can use negative no. too - like vectors, can choose red - but we need a blur!*/
+        /* x y blur color , RGBA another option if x want blur: 1 - transparent, 0 - opaque */
+        text-shadow: 4px 4px 10px red;
+      }
+
+      p {
+        margin: 0.5em 0;
+        /* default is 1 - basicaly like line spacing - good for lining things up */
+        line-height: 2;
+      }
+
+      /* no spaces in class names! */
+      .silly_font {
+        font-family: fantasy;
+        /* text color */
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Heading 1 Displays Block</h1>
+    <p>
+      <span class="silly_font">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis justo porta, ultricies sem suscipit, hendrerit metus. Nunc aliquam tellus eu tincidunt rhoncus.</span> Mauris rhoncus risus nec venenatis ultrices. Vestibulum blandit laoreet enim, a aliquam neque tempor sit amet. Duis varius metus vitae felis maximus sagittis. Curabitur vehicula vestibulum felis et posuere. Donec scelerisque volutpat luctus.
+    </p>
+    <p>
+      Vivamus laoreet, eros quis tincidunt aliquam, orci nisl egestas lacus, sit
+      amet eleifend dolor leo ultricies enim. Nunc mauris neque, iaculis in
+      ullamcorper feugiat, rhoncus et mauris. Aenean sem sem, congue vel
+      fringilla sed, ultrices rutrum purus. Phasellus luctus quam ut placerat
+      sagittis. Mauris vitae faucibus quam, sit amet accumsan magna. Cras nec
+      tempus ligula. Pellentesque a semper arcu.
+    </p>
+    <p>
+      Maecenas a nulla et nisi tristique ultricies. Etiam ut justo lacus. Duis
+      eu mauris eu mi finibus efficitur sed vel elit. Aenean vitae varius urna.
+      Nulla maximus tincidunt ipsum, a viverra nibh. Aliquam faucibus metus id
+      ante ullamcorper fermentum. Sed laoreet ipsum erat, ut scelerisque tortor
+      dignissim sed. Etiam maximus mi nulla, efficitur volutpat urna tincidunt
+      eu. Praesent ut ligula libero.
+    </p>
+  </body>
+</html>
