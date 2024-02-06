@@ -12,3 +12,4 @@ It's also crucial to communicate with stakeholders to make sure the product is s
 Continuous feedback is imperative to ensure effective communication through the designs.
 
 ## *Wireframe*
+<img src="wireframe.jpg" alt="Fruit Tart Single Recipe Wireframe" width="100%"/>
