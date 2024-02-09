@@ -1,0 +1,67 @@
+/* grouping selectors */
+/* just housekeeping - reset browser defaults */
+
+html, 
+body {
+    margin: 0;
+}
+
+/* divs are just invisible boxes */
+
+div {
+    /* width style color */
+    border: 1px solid red;
+    /* padding - spacing inside border */
+    /* margin - spacing outside border */
+    padding: 10px;
+}
+
+.abs-no-parent {
+    background-color: cornflowerblue;
+    /* by default: position is static */
+    /* position absolute - x care abt order - taking urself outside and be positioned absolutely - to the edge of the browser or the body tag */
+    /* stopped taking up that whole block - all behaving like the absolutely positioned - all pushed up - when put smth absolutely - take it out of the list of where everything else shd be */
+    position: absolute;
+    /* 20% down from the top, 100px from the right */
+    top: 20%;
+    right: 100px;
+    /* bottom - will be from whatever's at the bottom of html screen page - based on body tag */
+    /* if all 0 - will be stretched out all sides */
+}
+
+.rel-parent {
+    background-color: blueviolet;
+    width: 50%;
+    /* only 100% of what it was going to take up anyway, not relative to the browser - that's what viewport height is - what u currently see on screen's height - vh is better than % when it comes to height */
+    height: 100vh;
+    /* relative to where it was going to be anyway - NOT ABSOLUTE - generally more powerful to confine it's absolutely confined children */
+    position: relative;
+}
+
+.abs-rel-parent {
+    /* absolutely positioned in it's relative parent */
+    background-color: rgb(12, 237, 16);
+    width: 200px;
+    height: 200px;
+    /* this will only be okay if u have position: relative in the parent, it should be relative to parent, not just anywhere in the doc */
+    position: absolute;
+    /* from bottom of div it's in */
+    bottom: 10px;
+    right: 0;
+}
+
+header {
+    /* h1 has margin too */
+    background-color: darkorange;
+    height: 100px;
+    width: 100%;
+    /* position: fixed - it will be fixed within browser window - every other element will ignore it exists, so it will ignore margins and also ignore everything else - it gets taken out the eq completely, they are also covering it cause they are lower - 1st thing on doc will be further back, if something lower can get up - it will be so much further in front */
+    position: fixed;
+    /* pulling header tag forward 100 slots */
+    /* negative numbers push it back layers, positive pushes it front layers */
+    /* like layers in illustrator */
+    z-index: 100;
+    /* can add a top: 100px; for the rel-parent to push it down  */
+}
+
+

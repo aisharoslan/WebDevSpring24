@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dropdown Menu Nested UL</title>
+    <style type="text/css">
+      body {
+        /* the ones in ' ' are custom - ordered in most to least ideal */
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        /* 1: all same, 2 top right bottom 3: top right/left bottom, 4: top right bottom left*/
+        padding: 20px 50px 150px;
+        font-size: 13px;
+        /* all display block - and bullet points to the side */
+        text-align: center;
+        background-color: rgba(0, 0, 255, 0.1);
+      }
+
+      ul {
+        /* how words in a paragraph displays - next to each other */
+        /* gets rid of extra indent */
+        display: inline;
+        margin: 0;
+        padding: 15px 4px 17px 0;
+        list-style-type: none;
+        /* x y blur spread color */
+        box-shadow: 0 0 5px rgba(0,0,0,0.15);
+      }
+
+      ul li {
+        display: inline-block;
+        /* bc drop down should be absolute position */
+        position: relative;
+        /* top/bottom left/right */
+        padding: 15px 10px;
+        background-color: #fff;
+        /* will get this even if no anchor tag */
+        cursor: pointer;
+        /* transition -> if this property/css for this same thing changes - like add a new name - or hover etc - color changes from black to white etc - transition can tell them how long - eg a fade instead of instant */
+        /* all, how long in seconds - will only change until the properties above it change */
+        transition: all 0.5s;
+      }
+
+      ul li:hover {
+        /* white to grey */
+        background-color: #555;
+        /* this is text color */
+        color: #fff;
+      }
+      
+      /* this is the dropdown */
+      ul li ul {
+        padding: 0;
+        position: absolute;
+        top: 48px;
+        left: 0;
+        width: 150px;
+        box-shadow: none;
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        /* only opacity will take 0.5s */
+        transition: opacity 0.5s; 
+      }
+
+      ul li ul li {
+        background-color: #555;
+        display: block;
+        color: #fff;
+        /* x y blur color */
+        text-shadow: 0 -1px 0 #000;
+      }
+
+      /* hover over list in the dropdown */
+      ul li ul li:hover {
+        background-color: #666;
+      }
+
+      /* whenever hover over list item, then apply these styles to the ul */
+      ul li:hover ul {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+      }
+
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>Home</li>
+      <li>About</li>
+      <li>Portfolio
+          <ul>
+            <li>Web Design</li>
+            <li>Web Development</li>
+            <li>Photography</li>
+          </ul>
+      </li>
+      <li>Contact</li>
+    </ul>
+  </body>
+</html>
