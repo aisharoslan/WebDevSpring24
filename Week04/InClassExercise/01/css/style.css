@@ -16,9 +16,94 @@ body {
   font-family: 'Kaushan Script', cursive;
 }
 
+/* NAVIGATION */
+
+header {
+  width: 80%;
+  padding: 0 10%;
+  /* 80 + 10 + 10 = 100% */
+  height: 50px;
+  /* anything beyond 50px will be hidden */
+  overflow: hidden;
+  /* fixed/absolute - taken out of element tree as if it x exist */
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* pushes layer down (like illustrator) */
+  z-index: 100;
+  background-color: grey;
+  /* flexbox container properties - header is our container, the things inside the header that it's trying to flex - it's first generation - h1 and nav will be flex stacked - so we need another flex for the more nested levels */
+  display: flex;
+  /* by default: row, also has row-reverse, column (vertical), column-reverse etc */
+  flex-direction: row;
+  /* space between content (flex-end - start stack at end, flex-start - start stack at start */
+  /* space between each item (good for one on each end), space around each item, space evenly etc */
+  justify-content: space-between; 
+  /* align with each other */
+  /* can align and justify center both so that completely center */
+  align-items: center;
+  /* will tile seamlessly - repeat infinitely */
+  background: url('../img/tweed.png');
+}
+
+header h1 {
+  color: #CCC;
+  /* h1 is now not gonna take 100% bc it's in a flex */
+}
+
+/* want ul to be container and li to be flex next to each other */
+nav ul {
+  /* now items stack next to each other in a row */
+  display: flex;
+  list-style-type: none;
+  /* each item is centered in their block */
+  text-align: center;
+  background-color: rgba(40, 40, 40, 0.1);
+}
+
+/* no need to specify nav ul li - just nav li ok */
+nav li {
+  font-size: 18px;
+  /* keep height same as header's height */
+  height: 50px;
+  /* ensures text centers with the 50px height */
+  line-height: 50px; 
+  width: 120px
+}
+
+/* clickable area only anchor tag, not block - so now edit */ 
+nav a {
+  text-decoration: none;
+  color: #CCC;
+  /* take as much space as they can for whole a tag - so display block! */
+  display: block;
+  /* transitions are always defined at the starting/loading state style */
+  /* if anything changes, this is how long it'll change - can specify property or say all */
+  transition: all 1s;
+}
+
+/* anchor tags when hovered */
+nav a:hover {
+  background-color: rgba(40, 40, 40, 0.5);
+  color: #fff;
+}
+
+/* anchor tag with active class applied to it */
+nav a.active {
+  /* will show us what current page we're on - not hover - but actual page you're on */
+  background-color: black;
+  color: white;
+}
+
+/* break up styles by component or section - easier to find where you're at */
+/* DEFAULT GALLERY STYLES */
+
 .container {
   width: 900px;
-  margin: 0 auto;
+  /* auto - left right centered */
+  margin: 0 auto; 
+  /* ORDER MATTERS -> margin-top will take over, if it was before, margin would take over */
+  margin-top: 100px; 
   font-size: 0;
 }
 
@@ -44,3 +129,108 @@ body {
   color: #333;
   font-size: 1rem;
 }
+
+/* Transforms and transitions */
+
+/* scale up uniformly */
+.scaleUp {
+  /* takes 1 value - uniformly */
+  transform: scale(1.2);
+  /* bring to front */
+  z-index: 10;
+}
+
+/* in X direction */
+.scaleX {
+  /* first val is x direction, second val is y direction */
+  /* 200% in x, 100% in y */
+  transform: scale(2, 1);
+}
+
+.scaleY {
+  /* first val is x direction, second val is y direction */
+  /* 200% in x, 100% in y */
+  transform: scale(1, 2);
+}
+
+.skewX {
+  /* negative - clockwise, positive - cc */
+  /* enter an angle - deg or rad */
+  transform: skewX(-20deg);
+}
+
+.skewY {
+  /* enter an angle - deg or rad */
+  transform: skewY(-20deg);
+}
+
+.skewBoth {
+  /* x, y */
+  transform: skew(10deg, 30deg);
+}
+
+.rotX {
+  transform: rotateX(120deg);
+}
+
+.rotY {
+  transform: rotateY(120deg);
+}
+
+.rotZ {
+  transform: rotateZ(120deg);
+}
+
+/* can rotate and add divs to the back side - kinda cool idea for portfolio */
+
+.rotateLeft {
+  transform: rotate(-20deg);
+  /* always apply transition to STARTING STATE before interaction */
+  /* speeds up and slows down at beginning and end */
+  transition: all 5s ease-in-out;
+}
+
+.rotateLeft:hover {
+  transform: rotate(20deg);
+  cursor: pointer;
+}
+
+.skewHover {
+  transform: skewX(30deg);
+  transition: all 5s ease;
+}
+
+.skewHover:hover {
+  transform: skewX(-30deg);
+  cursor: pointer;
+}
+
+.scaleHover {
+  transform: scale(1.5);
+  transition: all 10s ease-in;
+}
+
+.scaleHover:hover {
+  transform: scale(0.5);
+  cursor: pointer;
+}
+
+.colorSwap {
+  /* tons of filters - play around - apply grayscale 100% */
+  filter: grayscale(100%) blur(5px);
+  /* applied to whole div - not just the image */
+  /* filter: blur(5px); */
+  transition: all 5s ease-out;
+}
+
+.colorSwap:hover {
+  filter: grayscale(0) blur(0px);
+  /* filter: blur(0px); */
+  /* it'll only take the latest modification aka blur if use, so put in one line! */
+}
+
+/* w3school css transforms */
+
+/* w3school filters */
+
+/* w3schools card flip tutorial */
