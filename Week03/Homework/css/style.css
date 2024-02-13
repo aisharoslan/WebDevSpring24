@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+  
+html {
+    background: white;
+    background-image: linear-gradient(90deg, rgba(214, 221, 255, 0.5) 50%, transparent 0),
+    linear-gradient(rgba(181, 223, 255, 0.5) 50%, transparent 0);
+    background-size: 150px 150px;
+    line-height: 2;
+}
+
+body {
+    /* the ones in ' ' are custom - ordered in most to least ideal */
+    font-family: 'Lexend Deca', sans-serif;
+    /* 1: all same, 2 top right bottom 3: top right/left bottom, 4: top right bottom left*/
+    padding: 20px 50px 150px;
+    font-size: 13px;
+    /* all display block - and bullet points to the side */
+    text-align: left;
+}
+
+.lexend-deca{
+    font-family: "Lexend Deca", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header nav {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+main figure img {
+    width: 30%;
+    display: block;
+}
+
+main section ul li {
+    list-style-type: square;
+    margin-left: 40px;
+}
+
+main section ol li {
+    margin-left: 40px;
+}
+
+nav ul {
+    /* how words in a paragraph displays - next to each other */
+    /* gets rid of extra indent */
+    display: inline;
+    margin: 0;
+    padding: 15px 4px 17px 0;
+    list-style-type: none;
+    /* x y blur spread color */
+    box-shadow: 0 0 5px rgba(0,0,0,0.15);
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: rgb(20, 33, 172);
+    font-weight: 500;
+}
+
+nav ul li {
+    display: inline-block;
+    /* bc drop down should be absolute position */
+    position: relative;
+    /* top/bottom left/right */
+    padding: 15px 10px;
+    background-color: #fff;
+    /* will get this even if no anchor tag */
+    cursor: pointer;
+    /* transition -> if this property/css for this same thing changes - like add a new name - or hover etc - color changes from black to white etc - transition can tell them how long - eg a fade instead of instant */
+    /* all, how long in seconds - will only change until the properties above it change */
+    transition: all 0.2s;
+}
+
+nav {
+    line-height: 1.5;
+}
+
+nav ul li:hover {
+    /* white to grey */
+    background-color: rgb(172, 209, 252);
+    /* this is text color */
+    color: #fff;
+}
+  
+  /* this is the dropdown */
+nav ul li ul {
+    padding: 0;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 150px;
+    box-shadow: none;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    /* only opacity will take 0.5s */
+    transition: opacity 0.2s; 
+}
+
+nav ul li ul li {
+    background-color: rgb(172, 209, 252);
+    display: block;
+    color: #fff;
+    /* x y blur color */
+}
+
+  /* hover over list in the dropdown */
+nav ul li ul li:hover {
+    background-color: rgb(203, 193, 251);
+}
+
+/* whenever hover over list item, then apply these styles to the ul */
+nav ul li:hover ul {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+aside section article h4 a {
+    text-decoration: none;
+    color: rgb(80, 47, 201);
+}
+
+footer nav ul li {
+    display: inline;
+}
