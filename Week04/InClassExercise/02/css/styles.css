@@ -1,0 +1,188 @@
+/* Global Styles - fonts/resets/margins/paddings/body/p */
+/* always go from most general to more specific - need to choose whether to go from desktop to mobile or vice versa */
+/* usually start from desktop - wanna think abt landscape oriented bigger screen first and then keep overriding as screen gets smaller */
+/* mobile first style - also another valid method but harder */
+/* search: mobile first media queries breakpoints */
+
+/* default things - to reset */
+* {
+    /* makes life easier! less math! */
+    /* there's also content-box -> excludes padding and border */
+    /* border-box -> shrinks content so that it's considering the padding and border overall - but margin still need to consider */
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+img {
+    /* take up 100% of whatever box it's in */
+    width: 100%;
+    /* keeps the aspect ratio */
+    height: auto;
+}
+
+/* Desktop First Styles */
+header {
+    /* flex container - everything that lives inside (direct descendants - not grandkids - like h1 span nav - will be stacked next to each other */
+    display: flex;
+    /* can change flex direction when change media query */
+    flex-direction: row;
+    /* justify-content -> default is flex-start */
+    /* equal space between each item - usually for one on left, one on right */
+    /* space-around - equal space around each item */
+    /* space-evenly - all spacing is the same between each */
+    justify-content: space-between;
+    /* like drawing a line thru the midpoint of them */
+    /* flex-start - pull everything to top, flex-bottom - pull everything to bottom */
+    align-items: center;
+    /* tiles infinitely */
+    background-image: url('../img/grey_wash_wall.png');
+    /* rem/em - 16px - responsive em (rem) - when doing responsive design */
+    /* 2rem so that not against the sides */
+    padding: 0 2rem;
+    position: relative;
+}
+
+.brand {
+    /* reduce h1 margin */
+    margin: 0;
+    font-weight: 300;
+}
+
+/* any anchor tag under header */
+header a {
+    color: #AAA;
+    text-decoration: none;
+}
+
+.mobile-menu {
+    /* treated as if it doesn't exist */
+    display: none;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    /* make the ul a flex container */
+    display: flex;
+    /* declare it bc it gon change when u change screen size */
+    flex-direction: row;
+}
+
+.menu li {
+    /* has to be at least this big - same for max/min width/height */
+    min-width: 5rem;
+}
+
+.menu li a {
+    /* to make anchor tag chunky and click everywhere in the box */
+    display: block;
+    padding: 1rem;
+}
+
+.menu li a:hover {
+    color: #EEE;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* fix photos */
+
+.container {
+    padding: 2rem;
+    /* all divs are now flex items in a flex container - all are going to shrink to try to fit in row by default - we didn't specify to wrap or not and we didn't say flex base size */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* as many pixels as image and it knows to wrap */
+    flex-wrap: wrap;
+}
+
+.thumb {
+    /* don't grow if i can - if 1 - grow everything uniformly */
+    /* flex-grow: 0; 
+    flex-shrink: 0;
+    /* always use this with grow and shrink */
+    /* flex-basis: 23%; */
+    /* about 4 on each row - cause max s 100% */
+    flex: 0 0 23%;
+    /* width: 23%; */
+    margin: 2rem auto;
+}
+
+/* need to care about portrait/landscape orientation for tablet and mobile phone - only need to modify direction and sizes - font etc no need to change */
+/* Tablet Size */
+
+/* this is the portrait width of classic ipad - 768px */
+/* landscape - 1024px */
+/* all has to be true - apply whatever inside {} */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    body {
+        background-color: green;
+    }
+
+    .thumb {
+        flex: 0 0 45%;
+        /* flex-basis: 45%; */
+        /* width: 45%; */
+        /* each div's margin decreases to 1rem */
+        margin: 1rem auto;
+    }
+}
+
+/* Mobile Phone Size */
+/* everything smaller than 768px */
+@media screen and (max-width: 768px) {
+    body {
+        background-color: blue;
+    }
+
+    header {
+        /* h1, span, nav only, not inside the nav */
+        flex-direction: column;
+        /* centers it vertically cause of column flex direction */
+        justify-content: center;
+        align-items: stretch;
+        text-align: center;
+        padding: 0;
+    }
+
+    .brand {
+        /* h1 margin */
+        margin: 0.5rem;
+    }
+
+    .mobile-menu {
+        display: block;
+        color: #AAA;
+        /* changes size of entity aka the menu */
+        font-size: 2rem;
+        position: absolute;
+        top: 0.5rem;
+        right: 1rem;
+    }
+
+    /* ul */
+    .menu {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu li {
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .thumb {
+        /* to override this - must choose between flex/width/flex-basis - keep it consistent */
+        flex: 1 1 100%;
+        margin: 1rem auto;
+    }
+}
+
