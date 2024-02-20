@@ -1,0 +1,235 @@
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+img {
+    /* want image to take 100% of whatever box it's in and height auto so that x lose aspect ratio */
+    width: 100%;
+    height: auto;
+}
+
+/* Flexbox Simple Rows and Columns */
+.container {
+    /* flex - things around the items we want to flex, prev 1234 was stacked, now they're next to each other - they will squeeze to fit */
+    display: flex;
+    /* will change to column on mobile */
+    flex-direction: row;
+    /* it's gonna try to squish all in one row - so tell them it's ok to wrap */
+    flex-wrap: wrap;
+    /* extra styles so we can see our divs - not related to flexbox */
+    border: 1px solid purple;
+    background-color: rgba(255, 0, 255, 0.3);
+    /* if there's a lot of content, can get bigger but it won't shrink to 0 if there's no content in there */
+    min-height: 400px;
+}
+
+.item {
+    border: 1px solid cornflowerblue;
+    background-color: rgba(0, 0, 255, 0.3);
+    /* so that won't ever shrink to 0 */
+    width: 23%;
+    height: 300px;
+}
+
+/* Atomic CSS */
+/* center horizontally and vertically inside parent */
+/* FLEX CONTAINER properties */
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+/* even spacing between - good for one on each side */
+.justify-between {
+    justify-content: space-between;
+}
+
+/* equal margins */
+.justify-around {
+    justify-content: space-around;
+}
+
+/* even spacing in between */
+.justify-even {
+    justify-content: space-evenly;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-center {
+    align-items: center;
+}
+
+/* FLEX ITEM properties - overrides defaults*/
+
+.self-start {
+    /* applied to the flex item, not the container */
+    align-self: flex-start;
+}
+
+.self-end {
+    align-self: flex-end;
+}
+
+.self-center {
+    /* applied to the flex item, not the container */
+    align-self: center;
+}
+
+/* 300px is fixed height, so override with height auto to stretch to the top and bottom div for all .item class*/
+.self-stretch {
+    align-self: stretch;
+    /* override needed to wipe out the fixed 300px height - to stretch to it's flex container's height*/
+    height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        /* instead of flex direction row - change it column! */
+        flex-direction: column;
+    }
+
+    .item {
+        width: 80%;
+    }
+
+    /* in mobile */
+    /* justify - top/bottom */
+    /* align items stretch - left/right - now controls more */
+    .self-stretch {
+        /* will take full width */
+        width: auto; 
+        height: 300px;
+    }
+}
+
+/* Standard Layout Example */
+
+/* generally x style by tag names - but header only once so issok */
+header {
+    display: flex;
+    min-height: 100px;
+    background-color: aqua;
+}
+
+.wrapper {
+    /* flex for main and aside */
+    display: flex;
+    flex-direction: row;
+}
+
+.grid-container {
+    /* flex for kitten images */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* will be diff for odd # of pics if u do space-between/around etc */
+    justify-content: flex-start;
+    align-items: center;
+    background-color: darkcyan;
+}
+
+.grid-item {
+    /* this is the manual way of doing justify-content: space-around */
+    /* 23 + 1 + 1 = 25 * 4 = 100% */
+    width: 23%;
+    margin: 1%;
+}
+
+.secondary-nav {
+    /* stretches down to match the main */
+    min-width: 25%;
+    background-color: aquamarine;
+}
+
+.menu {
+    /* remove default styling */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    border-bottom: 1px solid gray;
+}
+
+/* x overwrite other's class names */
+.menu span {
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 600;
+    /* take up all space it can */
+    display: flex;
+    /* vertical alignment */
+    align-items: center;
+}
+
+.menu a:hover {
+    background-color: rgba(0, 0, 0, 0.2)
+}
+
+footer {
+    background-color: coral;
+    min-height: 100px;
+    display: flex;
+}
+
+/* mobile first - use min width, desktop first - use max width */
+@media screen and (max-width: 1024px) {
+    .grid-item {
+        /* 2 each row */
+        /* margin 1 on each side */
+        /* 48 + 2 = 50 * 2 = 100% */
+        width: 48%
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .secondary-nav {
+        /* order only works for flex */
+        /* puts it before the grid container */
+        /* this is a FLEX ITEM property! */
+        order: 1;
+    }
+
+    .grid-container {
+        flex-direction: column;
+        /* puts this after the nav bar */
+        order: 2;
+    }
+
+    .grid-item {
+        width: 95%;
+    }
+}
