@@ -1,0 +1,210 @@
+/* Global Styles, Resets etc */
+/* can load multiple style sheets or import style sheets in another style sheet - to avoid repeated styles in multiple sheets */
+/* take into account borders and padding when setting dimensions of "boxes" - like divs/articles etc that has box */
+
+* {
+    box-sizing: border-box;
+    /* includes border and padding - make box 300 exactly */
+    /* if content-box: it adds on more padding - makes box 320 if padding on each side is 10px */
+}
+
+/* zero out that annoying margin on the page */
+html, 
+body {
+    margin: 0;
+}
+
+/* scale image to fit their parent container */
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* Desktop First Styling */
+
+/* match comment to the div comment u're trying to style! */
+/* JUMBOTRON */
+/* this is a div with class hero applied to it */
+/* if u did a space: div .hero - means that a class hero exists within div */
+/* div, .hero -> either one */
+div.hero {
+    /* viewport width - x use 100 if u want margin/padding */
+    width: 100vw; 
+    /* never taller than 100vh - just clip off anything extra with overflow */
+    /* viewport height */
+    max-height: 100vh;
+    /* easy way to crop pics */
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+/* any articles inside class hero */
+.hero article {
+    position: absolute;
+    /* 10% above from bottom */
+    bottom: 10%; 
+    /* stick it all the way to right */
+    right: 0;
+    width: 50%;
+    padding: 2%;
+    /* "to right/left/bottom" instead of 90deg also can - must also give direction and 2 colors (start/end) and their location */
+    /* 0% - at position - beginning of gradient */
+    /* 100% - at position - end of gradient */
+    /* css gradient website! can have as many stops as you want but it does get longer - but make sure got back up too - e.g. background: one color */
+    /* used in buttons/background colors */
+    background: linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 0.5) 0%, 
+        rgba(255, 0, 0, 0.1) 100%
+    );
+    /* sketch/figma - will give the color - never copy paste zeppelin/figma css code */
+}
+
+/* button OR anchor tags with class info */
+/* so all buttons and anchor tags look the same! */
+button, 
+a.info {
+    /* top/bottom left/right */
+    padding: 10px 20px;
+    border: 2px solid black;
+    /* rounded border - can do it separately for each corner too - border-top-left-radius etc*/
+    border-radius: 10px;
+    background-color: #333;
+    color: white;
+    /* capitalize - just First, uppercase - ALL */
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    /* always to initial state */
+    transition: all 1s linear;
+} 
+
+button:hover, a.info:hover {
+    /* change properties here on hover */
+    color: chartreuse;
+    background-color: #111;
+}
+
+/* PORTFOLIO THUMBNAIL GALLERY */
+
+.container {
+    width: 100%;
+    /* containers are flex most of the time so that they display in rows/cols */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.thumb {
+    /* cause we want the explanation/text to be on top the image */
+    position: relative;
+    /* 0 means bool false - DON'T grow/shrink */
+    flex-grow: 0;
+    flex-shrink: 0;
+    /* basically means width: 30% */
+    flex-basis: 30%;
+    /* flex: 0 0 30% */
+    /* width: 30% */
+    /* but must make it consistent! */
+    /* overflow crops content */
+    overflow: hidden;
+    /* we said space-between - so auto is fine for l/r, but t/b need space! */
+    margin: 24px auto;
+}
+
+/* PREPARE OUR INITIAL STATE FOR IMAGE TRANSFORMS */
+.thumb img {
+    transform: scale(1);
+    transform: rotate(0deg);
+    transition: all 1s ease;
+}
+
+/* put HOVER on THUMBNAIL DIV AROUND THE IMG! HOVER ON CONTAINER THEN STYLE STUFF WITHIN THE CONTAINER  */
+/* then apply these styles to img */
+.thumb:hover img {
+    transform: scale(1.5) rotate(-20deg);
+}
+
+.mask {
+    /* absolutely positioned on the div img */
+    /* but want to cover the thing it's overlapping, just stretch all to 0 */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    /* to get horizontally and vertically aligned to center */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    background-color: rgba(255,255,255,0.5);
+    transition: all 1s ease-in-out;
+}
+/* note: cannot hover over something that's hidden or opacity: 0 - only on the container around it */
+
+.mask h2 {
+    margin: 0;
+}
+
+.mask p {
+    /* makes everything italic, but if a few words - use <em> */
+    /* does this work for any font? */
+    font-style: italic;
+}
+
+.thumb:hover .mask {
+    opacity: 1
+}
+
+/* prepare initial state of text desc */
+/* we need the thumb cause we're gonna hover over it later */
+.thumb .mask h2,
+.thumb .mask p,
+.thumb .mask a {
+    opacity: 0;
+    transform: scale(0);
+    transition: all 1s ease-out;
+}
+
+.thumb:hover .mask h2,
+.thumb:hover .mask p,
+.thumb:hover .mask a {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* MEDIA QUERIES */
+
+/* HOVER DOESN'T EXIST ON TAPPY TAP LAND - AKA TABLET AND PHONE - SO NEED LEARN MORE BUTTON */
+
+/* Tablet */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    /* the red gradient box */
+    .hero article {
+        width: 75%;
+    }
+
+    .thumb {
+        flex-basis: 45%;
+    }
+}
+
+/* Phone */
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 12px;
+    }
+
+    .hero article {
+        width: 100%;
+        padding: 1rem;
+        bottom: 0;
+    }
+}
