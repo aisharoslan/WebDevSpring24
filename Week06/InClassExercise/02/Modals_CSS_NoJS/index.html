@@ -4,7 +4,127 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Modals</title>
-    <style type="text/css"></style>
+    <!-- internal style sheet only! -->
+    <style type="text/css">
+      .button {
+        text-decoration: none;
+        color: white;
+        background-color: blueviolet;
+        padding: 1rem 2rem;
+        /* 1 rem = 16px */
+        border-radius: 0.25rem; 
+      }
+
+      /* avoids having to use #info, #info2 - we use this for functionality */
+      /* most times css is just class names */
+      .info_modal {
+        position: fixed;
+        /* covers end to end of a page - stretch to cover over its parent (the entire browser window) */
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        /* transparent gray background */
+        background-color: rgba(0,0,0,0.3);
+        /* make sure the modals pop up IN FRONT OF everything else - z-index! */
+        z-index: 9999;
+        /* start - visibility/display css - cannot fade in / animate - so we use opacity! */
+        /* start state of 0% opacity so we can use a transition */
+        opacity: 0;
+        /* need this opacity to turn on pointer-events */
+        /* we always define transitions at the starting state */
+        /* all - for every css property - this one specifies opacity as property */
+        transition: opacity 400ms ease-in;
+        /* disable all mouse events - click/hover etc - anything to do with pointer - ensures transparent background and prevent ability to clock on anything in the back */
+        pointer-events: none;
+      }
+
+      /* only 1 target at a time - between href and id */
+      .info_modal:target {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      /* > means targeting a div w/ no classname/id etc but LIVES INSIDE of info_modal - DIRECT descendant or FIRST CHILD of info_modal - like flexbox - only 1st generation is affected */
+      /* .info_modal div - any div inside the class */
+      /* .info_modal > div - has to be the FIRST div inside the class */
+      /* look for smth with a class of info_modal, and find the div that is a direct descendant and only style that - more specific selector - more control - can put divs inside those divs */
+      .info_modal > div {
+        width: 300px;
+        height: 300px;
+        /* cause we had a close posiition we wanted to put at corner */
+        position: relative;
+        /* auto - centres it, 10% from top and bottom - not at edges */
+        margin: 10% auto; 
+        padding: 2rem;
+        background-color: white;
+        /* can also just put transparent as color */
+        border-radius: 10px;
+      }
+      
+      .close {
+        height: 20px;
+        width: 20px;
+        background-color: white;
+        color: black;
+        text-decoration: none;
+        position: absolute;
+        /* top right corner */
+        top: 0;
+        right: 0;
+        /* makes sure text is centered */
+        line-height: 20px;
+        /* for horizontal */
+        text-align: center;
+        cursor: pointer;
+        transition: all 1s ease;
+        border-top-right-radius: 10px;
+      }
+
+      .close:hover {
+        background-color: black;
+        color: white;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <!-- need to use anchor tags if not using javascript bc we need the href -->
+    <!-- can have as many modals as u want -->
+    <!-- this is targeting diff pages on ur website (# means targeting an id)-->
+    <!-- class button so they are styled like a button -->
+    <!-- HREF and ID match - MUST MAKE SURE so they're targeted properly on the same page -->
+    <a href="#info" class="button">Link to Modal 1</a>
+    <a href="#info2" class="button">Link to Modal 2</a>
+
+    <!-- main parent div (receives the ID), also acts as the transparent background covering what's behind the pop up -->
+    <div id="info" class="info_modal">
+      <!-- modal content -->
+      <div>
+        <!-- could be anything - a vimeo/slideshow/message/form etc -->
+        <!-- we need #close to close the pop-up -->
+        <!-- STATIC and INSERT ICON FONT CODE - on google material design icons -->
+        <!-- absolutely positioned close button -->
+        <a href="#close" class="close">X</a>
+        <!-- whatever HTML your little heart desires as content! -->
+        <h2>Title of Modal 1</h2>
+        <p>Hey look at me, I am the FIRST modal!</p>
+      </div>
+    </div>
+
+    <!-- main parent div (receives the ID), also acts as the transparent background covering what's behind the pop up -->
+    <!-- change id here -->
+    <div id="info2" class="info_modal">
+      <!-- modal content -->
+      <div>
+        <!-- could be anything - a vimeo/slideshow/message/form etc -->
+        <!-- we need #close to close the pop-up -->
+        <!-- STATIC and INSERT ICON FONT CODE - on google material design icons -->
+        <!-- absolutely positioned close button -->
+        <a href="#close" class="close">X</a>
+        <!-- whatever HTML your little heart desires as content! -->
+        <h2>Title of Modal 2</h2>
+        <p>Hey look at me, I am the SECOND modal!</p>
+      </div>
+    </div>
+  </body>
 </html>
