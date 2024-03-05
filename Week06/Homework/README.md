@@ -1,3 +1,3 @@
 # Midterm Progress
 
-## Head to MidtermProject folder
+### Head to MidtermProject folder
