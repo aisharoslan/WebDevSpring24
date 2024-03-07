@@ -33,7 +33,51 @@
         <div class="colorpanel fourth">
             <p>Learner</p>
         </div>
+        <article>
+            <h1>Welcome to Aisha's Portfolio</h1>
+            <p></p>
+            <a href="#info" class="modal">Email Me!</a>
+          </article>
     </div>
+    <div id="info" class="info_modal">
+        <div>
+          <a href="#close" class="close">...</a>
+          <h2>Contact</h2>
+          <p>Hi, thanks for visiting my portfolio. Feel free to send me a message in the form below if you have any inquiries or opportunities! </p>
+          <form action="#" method="POST" name="emailForm" target="_self">
+            <fieldset>
+                <p>The box and title of this form group are created by the fieldset and legend tags.</p>
+                <label for="name">What's your name?</label>
+                <input name="name" id="name" type="text" placeholder="Name"/> 
+                <br />
+                <label for="email">What's your email?</label>
+                <input name="email" id="email" type="text" placeholder="Email"/> 
+                <br />
+              </fieldset>
+
+              <fieldset>
+                <label for="goal"></label>
+                <br />
+                <input type="checkbox" name="Pet" value="dog" /> DOG
+                <br />
+                <input type="checkbox" name="Pet" value="cat" /> CAT
+                <br />
+                <input type="checkbox" name="Pet" value="chicken" /> CHICKEN
+                <br />
+                <input type="checkbox" name="Pet" value="snake" /> SNAKE
+              </fieldset>
+
+              <fieldset>
+                <label for="message">What's your message?</label>
+                <textarea name="message" cols="50" rows="10" placeholder="Write Me a Message!"></textarea>
+              </fieldset>
+
+              <input type="button" value="Submit Form" name="submit"/>
+              <button role="button" disabled>Submit</button> 
+          </form>
+        </div>
+    </div>
+
     <div class="intro">
         <div class="intropic">
             <img src="#" />

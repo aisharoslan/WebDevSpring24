@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Event Listeners and Delegation</title>
+    <style type="text/css">
+      img {
+        display: block;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .active {
+        color: red;
+        text-shadow: 2, 2, 2, 2 rgba(0, 0, 0, 0.4);
+      }
+    </style>
+    <script type="text/javascript">
+      // make our hidebtn globally available as a var - since used many places
+      // for const - use let
+      var hideBtn // can declare it globally but cannot do document.getElementById.... cause DOMContentLoaded not fired yet
+      // wait for the DOM to be loaded before executing certain lines of code, for example, assigning elements to variables
+      // DOMContentLoaded - fire/load all HTML first before listen to event
+      // write an anonymous function in it - known as a callback function - executes only when DOMContentLoaded is true - can put parameters into it too but NO NAME for it - it only needs to execute code
+      // in this example, the callback function is anonymous, aka we call a function here and it happens and we never need to call it anywhere else, so why name it?
+      // DOMContentLoaded is where we put all of the code we want to fire once the page has finished loading
+      // jQuery - document.ready function does the exact same thing
+      document.addEventListener('DOMContentLoaded', function() {
+        // only happens after DOMContentLoaded is finished loading
+        console.log('locked and loaded!')
+        // this is usually where we assign elements to variables, or where we add event listeners
+        // same as doing onclick="toggleVisible()" in the button element
+        // don't declare var here cause then toggleVisible cannot use it
+        hideBtn = document.getElementById('hideBtn')
+        
+        // cannot chain the prev with this! cause then hideBtn won't be the actual element - they're 2 diff things, but if no var, can just chain
+        hideBtn.addEventListener('click', toggleVisible) // no need to call () - just a reference for the function to call and no params passed in either
+
+        document.getElementById('eventH1').addEventListener('mouseover', function(event) {
+          // peep the event object that was passed into our anonymous callback function
+          // can pass in whatever, dog cat event wtv - special case with eventlistener - 2 params, 1. event, 2. callback function
+          console.log(event)
+          console.log(event.target) // gives specific key
+          // store event target (aka the one the event just happened to)
+          var el = event.target // this will give that H1
+          el.classList.toggle('active') // either add/remove the active class
+        })
+      })
+
+      // js hoisting - x need to define this before it's referenced/called
+      function toggleVisible() {
+        var peep = document.getElementById('chicken')
+        peep.classList.toggle('hidden')
+        
+        // only acceptable time to use innerHTML
+        if (peep.classList.contains('hidden')) {
+          hideBtn.innerHTML = 'Show'
+        } else {
+          hideBtn.innerHTML = 'Hide'
+        }
+      }
+    </script>
+  </head>
+  <!-- <body onload="loadFunctionNameHere()"> - this will call the function that adds all ur event listeners etc -->
+  <body>
+    <!-- onlick, mouseover, mouseleave, onmousedrag etc - all these are eventlisteners -->
+    <!-- delegate work when eventlistener is true -->
+    <h1 id="eventH1">This H1 is here to be moused over so we can see that event object.</h1>
+    <button id="hideBtn">Hide</button>
+    <img id="chicken" src="https://www.heritageacresmarket.com/wp-content/uploads/2021/04/AdobeStock_3067515-scaled.jpeg" width="500px"/>
+  </body>
+</html>

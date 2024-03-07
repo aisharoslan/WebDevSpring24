@@ -4,6 +4,122 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>JS Data Types P1</title>
+    <style type="text/css">
+      /* css single line comment */
+    </style>
+    
+    <script type="text/javascript">
+      // javascript single line comment
+      // this is for javascript code - inside script tag
+      // flow and typescript exist for a reason - typescript - future problem
+      // interactivity with browser
+      // typescript - forces types onto the variables and can't break it anymore - good!
+
+      // declare a GLOBAL variable, don't need semicolon - don't need to declare type - super flexible - and can get into trouble - kinda like python - useful when waiting for values from an API - no need to assign straight away - use globals if using in many places
+      var myVar
+
+      // assigning a value to a variable, ' ' or " " works - will know string type from that
+      myVar = 'number'
+
+      // declare and assign a value in one line
+      var otherVar = 24
+
+      // reassign VALUES at any time, AND new TYPE of value - e.g. changed from int to bool
+      otherVar = true
+      otherVar = 67
+      otherVar = 'twenty four'
+
+      // print - accessing the navigator(where url is) - can do navigator.
+      // can also do console.log() - javascript console
+      // also got document.
+      console.log(myVar)
+      console.log(typeof myVar)
+
+      // math
+      var x = 15
+      var y = '3'
+      var z = 'three'
+
+      // concatenates into a string
+
+      // gives 153 -> concatenates
+      console.log(x + y)
+
+      // gives 15three -> concatenancs
+      console.log(x + z)
+
+      // gives 45 -> will actually do the math - it can detect
+      console.log(x * y)
+
+      // gives NaN -> Not A Number
+      console.log(x * z)
+
+      // variables and string mixed - use double quotes to differentiate OR use back slash \
+      var temp = 72
+      var message = 'Today\'s temperature is ' + temp + ' degrees F.'
+      var message2 = "Today's temperature is " + temp + ' degrees F.'
+      console.log(message)
+      console.log(message2)
+
+      //functions parameters and the onclick attribute
+      function sumValues(a, b) {
+        // (local) variables DECLARED inside {} live and die inside - known as scoping - sum is scoped inside function - can add temp since temp is a global var
+        var sum = a + b
+        // page says NaN - will be called but a and b are undefined - cause didn't pass in any values - gives a pop up
+        // alert(sum) 
+        // just print
+        console.log(sum)
+      }
+
+      // error thrown because var sum is scoped within sumValues function
+      // console.log(sum)
+
+      // calling function
+      // sumValues() // undefined
+      sumValues(123, 456)
+
+      // booleans (true/false - use IS keyword) and conditionals 
+      var isOn = true
+
+      // toggle between on and off
+      function switchOnOff() {
+        if (isOn === true) {
+          alert('isOn is currently TRUE, switching to FALSE')
+          isOn = false
+        } else {
+          alert('isOn is currently FALSE, switching to TRUE')
+          isOn = true
+        }
+      }
+
+      // = for assignment (var isOn = true)
+      // == (isOn == 'true') - x check type for boolean - but evaluates as boolean
+      // === (isOn === true) -> checks type for boolean
+
+      // loops and increments
+      // i++ is shorthand for i = i + 1
+      // i-- is shorthand for i = i - 1
+      // i += 5 is shorthand for i = i + 5
+
+      // BEWARE OF INFINITE LOOPS. YOUR CONDITION MUST EVALUATE TO FALSE EVENTUALLY - ALWAYS NEED OFF SWITCH
+      function countToN(n) {
+        // for loop
+        for (var i = 10; i <= n; i+=5) {
+          console.log(i)
+        }
+        for (var i = 0; i <= n; i++) {
+          console.log(i)
+        }
+      }
+
+    </script>
   </head>
-  <body></body>
+  <body>
+    <!-- html single line comment -->
+    <!-- call a function onclick - ALL lowercase unlike react-->
+    <!-- must put parenthese to call! even if no parameters -->
+    <button onclick="switchOnOff()">Toggle ON/OFF</button>
+    <button onclick="countToN(45)">Count to 45</button>
+    <!-- call functions based on user input -->
+  </body>
 </html>
