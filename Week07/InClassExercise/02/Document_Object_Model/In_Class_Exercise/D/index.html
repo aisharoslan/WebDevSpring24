@@ -23,11 +23,18 @@
       var content = document.getElementById('content')
       console.log(content) // get entire element
     </script> -->
+  </head>
+  <body>
+    <button onclick="addSingleP()">Add a single P using strings</button>
+    <button onclick="addMultiP(9)">Add multiple Ps the right way using DOM nodes</button>
+    <div id="content">
+      <p>This is some dummy text that will be overwritten by innerHTML.</p>
+    </div>
     <script type="text/javascript">
       // declare our content variable globally so that we can access it anywhere within our script tags
       // global variable - within that 1 javascript file - anyone outside of js will not know
       // we can also assign it later in our code too
-      var content = document.getElementById('content')
+      var content = document.getElementById('content') // null if defined BEFORE body
       // console.log(content) // get entire element
 
       function addSingleP() {
@@ -53,42 +60,5 @@
         // console.log(i) - x work cause local var in for loop
       }
     </script>
-  </head>
-  <body>
-    <button onclick="addSingleP()">Add a single P using strings</button>
-    <button onclick="addMultiP(9)">Add multiple Ps the right way using DOM nodes</button>
-    <div id="content">
-      <p>This is some dummy text that will be overwritten by innerHTML.</p>
-    </div>
-    <!-- <script type="text/javascript">
-      // declare our content variable globally so that we can access it anywhere within our script tags
-      // global variable - within that 1 javascript file - anyone outside of js will not know
-      // we can also assign it later in our code too
-      var content = document.getElementById('content')
-      // console.log(content) // get entire element
-
-      function addSingleP() {
-        // blows everything out of the water and restarts basically
-        content.innerHTML = '<p>This is a poorly instantiated p tag using string trickery.</p>'
-      }
-
-      function addMultiP(num) {
-        // var num = 9
-        // creating 9 p and text nodes
-        // basically just appends paragraphs to existing content - not wiping it out
-        for (var i = 0; i < num; i++) {
-          // create an empty paragraph (p) element (node) - make space for it
-          var p = document.createElement('P') // like creating a tag, should use capital P for convention
-          // create a text node to go inside p tag - basically text w/o html
-          var text = document.createTextNode('This is paragraph number ' + (i + 1) + ' inserted with nodes.')
-          // append the text node to the p node
-          p.appendChild(text)
-          // append the p node to the html page
-          content.appendChild(p)
-        }
-
-        // console.log(i) - x work cause local var in for loop
-      }
-    </script> -->
   </body>
 </html>
