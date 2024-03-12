@@ -4,86 +4,107 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Aisha Roslan's Portfolio</title>
-    <link rel="stylesheet" href="../css/styles.css"/>
+    <link rel="stylesheet" href="../css/general.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   </head>
-  <body>
+  <body id="">
     <div class="header">
-        <img src="#" alt="logo"/>
-        <h1>Aisha Roslan's Portfolio</h1>
-        <nav>
-            <ul>
-                <li><a href="../home/index.html">Home</a></li>
-                <li><a href="../projects/index.html">Projects</a></li>
-                <li><a href="../gallery/index.html">Photography</a></li>
-                <li><a href="../about/index.html">About Me</a></li>
-            </ul>
-        </nav>
+        <div class="left_nav">
+            <div>
+                 <a href="./index.html">
+                <img class="brand_logo" src="../images/brand/Asset 4.png" alt="logo"/>
+            </a>
+            </div>
+            <div>
+                <h3 class="brand poppins-regular">
+                    <a href="./index.html">Aisha Roslan's Portfolio</a>
+                </h3>
+            </div>
+        </div>
+        <span class="mobile-menu">&#8801;</span>
+        <ul class="menu">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="../projects/index.html">Projects</a></li>
+            <li><a href="../gallery/index.html">Photography</a></li>
+            <li><a href="../about/index.html">About Me</a></li>
+        </ul>
     </div>
     <div class="hero">
         <div class="colorpanel first">
-            <p>Designer</p>
+            <h1 class="gloock-regular">Designer</h1>
         </div>
         <div class="colorpanel second">
-            <p>Programmer</p>
+            <h1 class="gloock-regular">Programmer</h1>
         </div>
-        <div class="colorpanel three">
-            <p>Photographer</p>
+        <div class="colorpanel third">
+            <h1 class="gloock-regular">Photographer</h1>
         </div>
         <div class="colorpanel fourth">
-            <p>Learner</p>
+            <h1 class="gloock-regular">Learner</h1>
         </div>
-        <article>
-            <h1>Hi, I'm Aisha! Welcome to my portfolio.</h1>
-            <p></p>
-            <a href="#info" class="modal">Email Me!</a>
-          </article>
+        <div class="welcome">
+            <h1 class="poppins-medium">Hi, I'm Aisha! Welcome To My Portfolio.</h1>
+        </div>
+        <div class="welcome2">
+            <h1 class="poppins-medium">Hi, I'm Aisha! Welcome To My Portfolio.</h1>
+        </div>
     </div>
     <div id="info" class="info_modal">
         <div>
-          <a href="#close" class="close">...</a>
-          <h2>Contact</h2>
+          <a href="#close" class="close"><span class="material-symbols-outlined">close</span></a>
+          <h2>Contact Form</h2>
           <p>Hi, thanks for visiting my portfolio. Feel free to send me a message in the form below if you have any inquiries or opportunities! </p>
           <form action="#" method="POST" name="emailForm" target="_self">
-            <fieldset>
-                <p>The box and title of this form group are created by the fieldset and legend tags.</p>
-                <label for="name">What's your name?</label>
-                <input name="name" id="name" type="text" placeholder="Name"/> 
-                <br />
-                <label for="email">What's your email?</label>
-                <input name="email" id="email" type="text" placeholder="Email"/> 
-                <br />
-              </fieldset>
+            <label for="name">What's your name?</label>
+            <br />
+            <br />
+            <input name="name" id="name" type="text" placeholder="Name"/> 
+            <br />
+            <br />
 
-              <fieldset>
-                <label for="goal"></label>
-                <br />
-                <input type="checkbox" name="Pet" value="dog" /> DOG
-                <br />
-                <input type="checkbox" name="Pet" value="cat" /> CAT
-                <br />
-                <input type="checkbox" name="Pet" value="chicken" /> CHICKEN
-                <br />
-                <input type="checkbox" name="Pet" value="snake" /> SNAKE
-              </fieldset>
+            <label for="email">What's your email?</label>
+            <br />
+            <br />
+            <input name="email" id="email" type="text" placeholder="Email"/> 
+            <br />
+            <br />
 
-              <fieldset>
-                <label for="message">What's your message?</label>
-                <textarea name="message" cols="50" rows="10" placeholder="Write Me a Message!"></textarea>
-              </fieldset>
+            <label for="intent">Subject Matter</label>
+            <br />
+            <br />
+            <input type="radio" name="intent" value="Internship" />Internship
+            <br />
+            <input type="radio" name="intent" value="Project_Opportunity" /> Project Opportunity
+            <br />
+            <input type="radio" name="intent" value="Networking/Coffee Chat" /> Networking/Coffee Chat
+            <br />
+            <input type="radio" name="intent" value="Other" /> Other
+            <br />
+            <br />
 
-              <input type="button" value="Submit Form" name="submit"/>
-              <button role="button" disabled>Submit</button> 
+            <label for="message">What's your message?</label>
+            <br />
+            <br />
+            <textarea name="message" cols="50" rows="10" placeholder="Write Me a Message!"></textarea>
+
+            <br />
+            <br />
+            <input type="button" value="Submit Form" name="submit"/>
           </form>
         </div>
     </div>
 
-    <div class="intro">
-        <div class="intropic">
-            <img src="#" />
+    <div class="profile">
+        <div class="picture">
+            <img src="../images/brand/profile.png" />
         </div>
-        <div class="introbio">
-            <h2>Hi, I'm Aisha!</h2>
+        <div class="bio">
+            <p>Hi, nice to meet you and welcome! My name is Aisha, I'm currently a Computer Science major at NYU Tandon School of Engineering. I'm a passionate engineer and designer, interested in the intersection of tech and design. I'm always open to learning from peers and various industry professionals. So, contact me if you have any inquiries or opportunities to collaborate!</p>
+            <br />
+            <div class="button">
+                <a href="#info" class="modal">Contact Me!</a>
+            </div>
         </div>
     </div>
 
@@ -128,25 +149,35 @@
     <div class="bottom_section">
         <h2>Link to More</h2>
         <div class="button">
-            <a href="../projects/index.html">Projects</a>
+            <a href="../projects/index.html">Projects  <span class="material-symbols-outlined">
+            arrow_outward
+            </span></a>
         </div>
         <div class="button">
-            <a href="../gallery/index.html">Photography</a>
+            <a href="../gallery/index.html">Photography  <span class="material-symbols-outlined">
+            arrow_outward
+            </span></a>
         </div>
         <div class="button">
-            <a href="../about/index.html">About Me</a>
+            <a href="../about/index.html">About Me  <span class="material-symbols-outlined">
+            arrow_outward
+            </span></a></a>
         </div>
     </div>
     <div class="footer">
-        <h3>Copyright &#169 2024 Aisha Roslan</h3>
-        <div class="button_footer">
-            <a href="https://www.linkedin.com/in/aisha-roslan/" target="_blank">LinkedIn</a>
+        <div class="copyright">
+            <h3 class="poppins-regular">Copyright &#169 2024 Aisha Roslan</h3>
         </div>
-        <div class="button_footer">
-            <a href="mailto:ar7805@nyu.edu" target="_blank">Email</a>
-        </div>
-        <div class="button_footer">
-            <a href="https://github.com/aisharoslan" target="_blank">GitHub</a>
+        <div class="footer_links">
+            <div class="button_footer">
+                <a href="https://www.linkedin.com/in/aisha-roslan/" target="_blank">LinkedIn</a>
+            </div>
+            <div class="button_footer">
+                <a href="mailto:ar7805@nyu.edu" target="_blank">Email</a>
+            </div>
+            <div class="button_footer">
+                <a href="https://github.com/aisharoslan" target="_blank">GitHub</a>
+            </div>
         </div>
     </div>
   </body>

@@ -4,21 +4,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Aisha Roslan's Portfolio</title>
-    <link rel="stylesheet" href="../css/styles.css"/>
+    <link rel="stylesheet" href="../css/general.css"/>
+    <link rel="stylesheet" href="../css/about.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   </head>
   <body>
     <div class="header">
-      <img src="#" alt="logo"/>
-      <h1>Aisha Roslan's Portfolio</h1>
-      <nav>
-          <ul>
-              <li><a href="../home/index.html">Home</a></li>
-              <li><a href="../projects/index.html">Projects</a></li>
-              <li><a href="../gallery/index.html">Photography</a></li>
-              <li><a href="../about/index.html">About Me</a></li>
-          </ul>
-      </nav>
+      <div class="left_nav">
+          <div>
+               <a href="../home/index.html">
+              <img class="brand_logo" src="../images/brand/Asset 4.png" alt="logo"/>
+          </a>
+          </div>
+          <div>
+              <h3 class="brand poppins-regular">
+                  <a href="../home/index.html">Aisha Roslan's Portfolio</a>
+              </h3>
+          </div>
+      </div>
+      <span class="mobile-menu">&#8801;</span>
+      <ul class="menu">
+        <li><a href="../home/index.html">Home</a></li>
+        <li><a href="../projects/index.html">Projects</a></li>
+        <li><a href="../gallery/index.html">Photography</a></li>
+        <li><a href="../about/index.html">About Me</a></li>
+      </ul>
     </div>
     <div>
       <h1>About Me</h1>
@@ -31,7 +41,7 @@
       </div>
     </div>
     <div class="about_page_sub">
-      <a class="Resume" href="https://drive.google.com/file/d/147SRevnJeDYI-vPWkU8doVEt1Yw7GcPi/view?usp=sharing" target="_blank">Link to my Resume!</a>
+      <a class="Resume" href="https://drive.google.com/file/d/1wuts5JjmMlWdPh1UpqwNmPfW925-hfFC/view?usp=sharing" target="_blank">Link to my Resume!</a>
       <div class="interests">
         <h3>Sklls & Interests</h3>
         <p>Programming:</p>
@@ -65,11 +75,11 @@
       </div>
       <div class="experience">
         <h3>Work Experiences & Extracurriculars</h3>
-        <p>On-Campus Jobs:</p>
+        <p>On-Campus Jobs @ NYU:</p>
         <ul>
-          <li>NYU MakerSpace Technical Assistant</li>
-          <li>NYU Object-Oriented Programming Course Assistant</li>
-          <li>NYU General Engineering Teaching Assistant</li>
+          <li>MakerSpace Technical Assistant</li>
+          <li>Object-Oriented Programming Course Assistant</li>
+          <li>General Engineering Teaching Assistant</li>
         </ul>
         <p>Internship:</p>
         <ul>
@@ -87,16 +97,20 @@
       </div>
     </div>
     <div class="footer">
-      <h3>Copyright &#169 2024 Aisha Roslan</h3>
-      <div class="button_footer">
-          <a href="https://www.linkedin.com/in/aisha-roslan/" target="_blank">LinkedIn</a>
+      <div class="copyright">
+          <h3 class="poppins-regular">Copyright &#169 2024 Aisha Roslan</h3>
       </div>
-      <div class="button_footer">
-          <a href="mailto:ar7805@nyu.edu">Email</a>
+      <div class="footer_links">
+          <div class="button_footer">
+              <a href="https://www.linkedin.com/in/aisha-roslan/" target="_blank">LinkedIn</a>
+          </div>
+          <div class="button_footer">
+              <a href="mailto:ar7805@nyu.edu" target="_blank">Email</a>
+          </div>
+          <div class="button_footer">
+              <a href="https://github.com/aisharoslan" target="_blank">GitHub</a>
+          </div>
       </div>
-      <div class="button_footer">
-          <a href="https://github.com/aisharoslan" target="_blank">GitHub</a>
-      </div>
-    </div>
+  </div>
   </body>
 </html>

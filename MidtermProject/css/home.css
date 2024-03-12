@@ -1,0 +1,150 @@
+/* Hero Panels */
+
+.hero {
+    width: 100vw; 
+    max-height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0.3);
+    min-height: 400px;
+    position: relative;
+}
+
+.colorpanel{
+    width: 25%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.first:hover {
+    background: rgb(109, 82, 159);
+    color: white;
+}
+
+.second:hover {
+    background: rgb(74, 84, 196);
+    color: white;
+}
+
+.third:hover {
+    background: rgb(140, 198, 92);
+    color: white;
+}
+
+.fourth:hover {
+    background: rgb(192, 59, 114);
+    color: white;
+}
+
+.welcome {
+    position: absolute;
+    left: 50px;
+    bottom: 0;
+    color: rgb(255, 255, 255);
+}
+
+.welcome2 {
+    position: absolute;
+    top: 0;
+    right: 50px;
+    color: rgb(255, 255, 255);
+}
+
+/* Modal */
+
+.info_modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,1);
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+    overflow-y: auto;
+}
+
+.info_modal:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.info_modal > div {
+    width: 80%;
+    height: auto;
+    position: relative;
+    margin: 10% auto; 
+    padding: 2rem;
+    background-color: white;
+}
+  
+.close {
+    height: 40px;
+    width: 40px;
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    /* top right corner */
+    top: 10px;
+    right: 0;
+    /* makes sure text is centered */
+    line-height: 20px;
+    /* for horizontal */
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.close:hover {
+    transform: scale(1.2); 
+}
+
+
+/* Intro */
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.picture {
+    width: 30%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.bio {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 40%;
+    text-align: center;
+    line-height: 1.7;
+}
+
+.button {
+    background-color: rgb(149, 134, 245);
+    border-radius: 0.25rem; 
+}
+
+.button a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 1rem 2rem;
+    border-radius: 0.25rem; 
+    transition: all 0.2s ease-in;
+}
+
+.button a:hover {
+    color: rgb(149, 134, 245);
+    background-color: black;
+}
