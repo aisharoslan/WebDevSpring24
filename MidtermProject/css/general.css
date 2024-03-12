@@ -196,7 +196,6 @@ img.brand_logo {
 .menu li a:hover {
     color: black;
     background-color: rgb(149, 134, 245);
-    transform: scale(1.1);
 }
 
 /* Footer Nav */
