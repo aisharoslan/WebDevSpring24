@@ -1,0 +1,101 @@
+/* Header */
+
+h1 {
+    text-align: center;
+    font-size: 100px;
+}
+
+/* Profile & Bio */
+
+.about {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.about img {
+    width: 30%;
+    height: 100%;
+}
+
+.bio {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bio h2 {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 30px;
+}
+
+.bio p {
+    width: 80%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    padding-bottom: 30px;
+    line-height: 1.7;
+}
+
+.button {
+    width: 38%;
+    background-color: rgb(149, 134, 245);
+    border-radius: 0.25rem; 
+    text-align: center;
+}
+
+.button a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 1rem 1rem;
+    border-radius: 0.25rem; 
+    transition: all 0.2s ease-in;
+}
+
+.button span {
+    padding-left: 20px;
+}
+.button a:hover {
+    color: rgb(149, 134, 245);
+    background-color: black;
+}
+
+/* Skills & Work Experience */
+
+.interests h3,
+.experience h3 {
+    font-size: 40px;
+    text-align: center;
+}
+
+.about_page_sub {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.interests, .experience {
+    width: 48%;
+    padding: 2%;
+    border-radius: 0.5rem;
+    background-color: rgb(149, 134, 245);
+}
+
+.interests p,
+.interests ul {
+    margin-left: 100px;
+}
+
+.experience p,
+.experience ul {
+    margin-left: 70px;
+}

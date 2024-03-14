@@ -4,6 +4,86 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>JS Math Methods</title>
+    <script type="text/javascript">
+      // integers aka whole numbers
+      var x = 15
+      var y = 35
+
+      // simple math functions
+      // addition +
+      console.log(x + y)
+      // subtraction -
+      console.log(x - y)
+      // multiply *
+      console.log(x * y)
+      // divide /
+      console.log(x / y)
+      // modular operator % returns the division remainder
+      // helpful when we want to use odd/even or every nth number
+      console.log(y % x)
+
+      // just like in algebra, order of operation matters!
+      console.log((x + y) * y - 1)
+
+      // floating point numbers and round, floor, ceil methods
+      var z = 2.25
+
+      // Math.floor() will always round DOWN - RETURNS something to us
+      var zDown = Math.floor(z)
+      console.log(zDown)
+
+      // Math.ceil() will always round UP - RETURNS something to us
+      var zUp = Math.ceil(z)
+      console.log(zUp)
+
+      // Math.round() takes into account the value of the decimals to round, <5 round down, >5 round up
+      var num1 = 2.2
+      var num2 = 2.7
+      console.log(Math.round(num1))
+      console.log(Math.round(num2))
+      
+      // Math.random (boolean, 0-N, Min-Max)
+      // returns a floating point number between 0 and 1 - good for H/T, T/F situation
+      var r = Math.random()
+      console.log(r)
+      // use Math.random() to get the whole numbers 0 OR 1 for a boolean type situation
+      var yesNo = Math.round(Math.random())
+      console.log(yesNo)
+      if (yesNo == 0) {
+        console.log('heads')
+      } else {
+        console.log('tails')
+      }
+
+      // var test
+      // random whole number between 0 and X
+      // we need a parameter we can change each time to make the function way more reusable
+      function randNumMax(n) {
+        // when we declare a variable inside a function, it lives and dies within the {}
+        var rn = Math.round(n * Math.random())
+        // by returning the value of RN at the end of the function, we can now use this number we generated anywhere in our entire script tag
+        return rn
+        // return Math.round(n * Math.random()) - cool way
+      }
+
+      var rand = randNumMax(99)
+      // console.log(randNumMax(99))
+      console.log(rand)
+
+      // random number within a range, min and max
+      function randNumRange(min, max) {
+        // max - min is the range, then we start counting from min
+        var rn = Math.round(Math.random() * (max - min) + min)
+        return rn
+      }
+
+      console.log(randNumRange(10,20))
+      // we can also assign the value returned to another variable
+      var myRandom = randNumRange(100,200)
+      console.log(myRandom)
+    </script>
   </head>
-  <body></body>
+  <body>
+
+  </body>
 </html>

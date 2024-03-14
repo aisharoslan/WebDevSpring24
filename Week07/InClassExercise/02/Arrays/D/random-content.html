@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Random Content</title>
+    <script type="text/javascript">
+        // make an array of img srcs to choose from at random when the page loads
+        var arrImg = [
+            'https://th-thumbnailer.cdn-si-edu.com/Z86OkR2hJco1o9pqRFOJSP8Xgpw=/1072x720/filters:no_upscale()/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/b9/d2/b9d271f3-7f66-4132-b5af-7d33844505b7/goat.jpg',
+            'https://www.farmersalmanac.com/wp-content/uploads/2020/11/Raising-Backyard-Goats-Tips-i834732994.jpeg',
+            'https://image.api.playstation.com/vulcan/img/rnd/202010/2621/DHZnQKM7NaNJ5FAIjdSJMxkw.png',
+            'https://d.newsweek.com/en/full/2303646/baby-goat.jpg?w=1200&f=81c50f386d0ceb2004e8b8fb063d2e9c'
+        ]
+        // make an array of links that correspond to the images shown
+        var arrLinks = [
+            'https://www.smithsonianmag.com/science-nature/never-underestimate-goat-not-stupid-looks-180950265/',
+            'https://www.farmersalmanac.com/raising-goats',
+            'https://www.newscientist.com/article/2209218-goats-reveal-their-feelings-with-the-sound-of-distinctive-bleats/',
+            'https://www.newsweek.com/goat-horses-breaks-fence-1840396'
+        ]
+        // helper function for picking a random number in the range of our array length
+        function randomIndex(max) {
+            // make sure floor it for arrays!
+            return Math.floor(Math.random() * max)
+        }
+
+        // we can write our pick some random content function here, but we shouldn't try and call it until our DOM has loaded
+        function loadRandomImage() {
+            // pick a random index in the range of our array length
+            var index = randomIndex(arrImg.length)
+            // assigned our img and link elements as variables
+            var img = document.getElementById('goat')
+            var link = document.getElementById('dynLink')
+            // this is accessing the src attr of img with id = 'goat' in the body
+            // using dot notation, we can access and assign values to different attributes of our elements
+            img.src = arrImg[index]
+            link.href = arrLinks[index]
+        }
+
+        // bring it all together with an event listener
+        // loadRandomImage() - will get undefined bc not yet define img and link - so use event listener
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     // assign elements to global variables here
+        //     // add event listeners to diff elements on the page
+        //     // call any functions I want to fire when th epage initially loads
+        //     loadRandomImage()
+        // })
+
+        // another equivalent version for above
+        document.addEventListener('DOMContentLoaded', loadRandomImage)
+    </script>
+  </head>
+  <body>
+    <a href="#" id="dynLink" target="_blank"><img src="" id="goat"/></a>
+  </body>
+</html>

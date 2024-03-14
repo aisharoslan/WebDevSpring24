@@ -6,7 +6,6 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    background-color: rgba(0, 0, 0, 0.3);
     min-height: 400px;
     position: relative;
 }
@@ -52,6 +51,10 @@
     top: 0;
     right: 50px;
     color: rgb(255, 255, 255);
+}
+
+.welcome3 {
+    display: none;
 }
 
 /* Modal */
@@ -231,12 +234,13 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-    margin-left: 90px;
+    margin-left: 60px;
     margin-right: 90px;
 }
 
 .featuredpic {
     width: 50%;
+    padding-right: 20px;
 }
 
 .featuredtext {
@@ -256,10 +260,24 @@
     width: 43%;
 }
 
+.featuredtext a {
+    text-decoration: none;
+    color: rgb(149, 134, 245);
+}
+
+.featuredtext h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+
+
 /* Link To More */
 
 .more {
-    margin: 20px;
+    margin: 30px;
+    font-size: 40px;
 }
 
 .bottom_section {
@@ -292,4 +310,104 @@
 
 .bottom_button span {
     padding-left: 20px;
+}
+
+/* Tablet Media Query */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+/* Phone Media Query */
+
+@media screen and (max-width: 768px) {
+    /* Hero Panels */
+
+    .hero {
+        flex-direction: row;
+    }
+    
+    .colorpanel{
+        width: 50%;
+    }
+
+    .welcome h1 {
+        display: none;
+    }
+
+    .welcome2 {
+        display: none;
+    }
+
+    .welcome3 {
+        margin-top: 40px;
+        display: block;
+        color: rgb(149, 134, 245);
+        text-align: center;
+    }
+    
+    /* Skills */
+
+    .cplusplus {
+        width: 23%;
+    }
+
+    .html {
+        width: 24%;
+    }
+
+    .css {
+        width: 22%;
+    }
+
+    .js {
+        width: 28%;
+    }
+
+    .python {
+        width: 24%;
+    }
+
+    .github {
+        width: 24%;
+    }
+
+    .adobe {
+        width: 24%;
+    }
+
+    .figma {
+        width: 22%;
+    }
+
+    .sql {
+        width: 24%;
+    }
+
+    /* Featured Project */
+
+    .featured {
+        flex-direction: column;
+    }
+
+    .featuredpic {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .featuredtext {
+        width: 100%;
+    }
+
+    .featuredtext .button {
+        width: 48%;
+    }
+
+    /* Link To More */
+
+    .bottom_button a {
+        padding: 1rem 2rem;
+    }
+
 }
