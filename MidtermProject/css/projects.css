@@ -4,3 +4,75 @@ h1 {
     text-align: center;
     font-size: 100px;
 }
+
+/* Projects */
+
+.project_box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    position: relative;
+    width: 30%;
+    overflow: hidden;
+    margin: 24px auto;
+    background-color: rgb(149, 134, 245);
+    border-radius: 0.25rem;
+}
+
+/*
+.card img {
+    transform: scale(1);
+    transform: rotate(0deg);
+    transition: all 1s ease;
+}
+
+.card:hover img {
+    transform: scale(1.5) rotate(-20deg);
+}
+
+.card {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    background-color: rgba(255,255,255,0.5);
+    transition: all 1s ease-in-out;
+}
+
+.mask h3 {
+    margin: 0;
+}
+
+.mask p {
+    font-style: italic;
+}
+
+.thumb:hover .mask {
+    opacity: 1
+}
+
+.thumb .mask h2,
+.thumb .mask p,
+.thumb .mask a {
+    opacity: 0;
+    transform: scale(0);
+    transition: all 1s ease-out;
+}
+
+.thumb:hover .mask h2,
+.thumb:hover .mask p,
+.thumb:hover .mask a {
+    opacity: 1;
+    transform: scale(1);
+} */
