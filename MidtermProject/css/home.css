@@ -273,7 +273,6 @@
     padding-bottom: 10px;
 }
 
-
 /* Link To More */
 
 .more {
@@ -346,43 +345,68 @@
         color: rgb(149, 134, 245);
         text-align: center;
     }
+
+    .welcome3 h1 {
+        padding-bottom: 30px;
+    }
     
+    /* Intro */
+
+    .profile {
+        flex-direction: column;
+    }
+
+    .picture {
+        margin: 0;
+        width: 50%;
+    }
+
+    .bio {
+        margin: 0;
+        width: 70%;
+    }
+
     /* Skills */
 
     .cplusplus {
-        width: 23%;
+        width: 30%;
     }
 
     .html {
-        width: 24%;
+        width: 31%;
     }
 
     .css {
-        width: 22%;
-    }
-
-    .js {
         width: 28%;
     }
 
+    .js {
+        width: 37%;
+        padding-top: 0;
+        padding-left: 40px;
+    }
+
     .python {
-        width: 24%;
+        width: 30%;
+        padding-left: 40px;
     }
 
     .github {
-        width: 24%;
+        width: 30%;
     }
 
     .adobe {
-        width: 24%;
+        width: 30%;
     }
 
     .figma {
-        width: 22%;
+        width: 28%;
+        padding-left: 50px;
+        margin-left: 30px;
     }
 
     .sql {
-        width: 24%;
+        width: 32%;
     }
 
     /* Featured Project */
@@ -409,6 +433,11 @@
 
     .bottom_button a {
         padding: 1rem 2rem;
+        text-align: center;
     }
 
+    .bottom_button {
+        width: 40%;
+        margin-bottom: 20px;
+    }
 }

@@ -76,3 +76,26 @@ div.hero {
     color: rgb(149, 134, 245);
     text-align: center;
 }
+
+/* Tablet Media Query */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+/* Phone Media Query  */
+
+@media screen and (max-width: 768px) {
+    .project_page_sub {
+        flex-direction: column;
+    }
+
+    .image_div {
+        width: 80%;
+    }
+    
+    .more {
+        width: 80%;
+    }
+    
+}
