@@ -144,6 +144,12 @@ img {
     align-items: center;
     background: rgb(0, 0, 0);
     padding: 0 1.5rem 0 2rem;
+    /* learned from w3schools */
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    z-index: 999;
+    height: 55px;
 }
 
 .left_nav {
@@ -249,6 +255,9 @@ img.brand_logo {
 /* Phone Media Query  */
 
 @media screen and (max-width: 768px) {
+    body {
+        background: rgb(208, 208, 255);
+    }
     /* Header Nav */
 
     .header {

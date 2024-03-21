@@ -3,6 +3,7 @@
 h1 {
     text-align: center;
     font-size: 100px;
+    padding-top: 55px;
 }
 
 /* Projects */
@@ -12,7 +13,7 @@ h1 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .card {
@@ -21,21 +22,45 @@ h1 {
     overflow: hidden;
     margin: 24px auto;
     background-color: rgb(149, 134, 245);
-    border-radius: 0.25rem;
+    border-radius: 1rem;
 }
 
-/*
-.card img {
-    transform: scale(1);
-    transform: rotate(0deg);
-    transition: all 1s ease;
+.portfolio {
+    height: 393px;
 }
 
-.card:hover img {
-    transform: scale(1.5) rotate(-20deg);
+.ignite {
+    height: 440px;
 }
 
-.card {
+.music {
+    height: 525px;
+}
+
+.hackmit {
+    height: 282px;
+}
+
+.guitar {
+    height: 540px;
+}
+
+.arch {
+    height: 573px;
+}
+
+.info {
+    margin-top: 30px;
+    width: 50%;
+    background-color: rgb(149, 134, 245);
+    border-radius: 0.25rem; 
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    padding: 1rem 2rem;
+}
+
+.mask {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -45,34 +70,36 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 5px solid rgb(149, 134, 245);
+    border-radius: 1rem;
     opacity: 0;
-    background-color: rgba(255,255,255,0.5);
-    transition: all 1s ease-in-out;
+    background-color: rgba(255, 255, 255);
+    transition: all 0.2s ease-in;
 }
 
 .mask h3 {
     margin: 0;
 }
 
-.mask p {
-    font-style: italic;
-}
-
-.thumb:hover .mask {
+.card:hover .mask {
     opacity: 1
 }
 
-.thumb .mask h2,
-.thumb .mask p,
-.thumb .mask a {
+.card .mask h2,
+.card .mask p,
+.card .mask a {
     opacity: 0;
     transform: scale(0);
-    transition: all 1s ease-out;
+    transition: all 0.2s ease-out;
 }
 
-.thumb:hover .mask h2,
-.thumb:hover .mask p,
-.thumb:hover .mask a {
+.card:hover .mask h2,
+.card:hover .mask p,
+.card:hover .mask a {
     opacity: 1;
     transform: scale(1);
-} */
+} 
+
+span {
+    padding-left: 15px;
+}

@@ -1,6 +1,7 @@
 /* Hero Jumbotron */
 
 div.hero {
+    padding-top: 55px;
     width: 100vw; 
     max-height: 50vh;
     overflow: hidden;
@@ -87,7 +88,7 @@ div.hero {
 #cities,
 #nature,
 #portraits {
-    font-size: 250px;
+    font-size: 150px;
     margin: 0;
     padding: 0;
 }
@@ -99,7 +100,6 @@ div.hero {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    background-color: black;
 }
 
 .vertical img {

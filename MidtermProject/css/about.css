@@ -69,12 +69,6 @@ h1 {
 
 /* Skills & Work Experience */
 
-.interests h3,
-.experience h3 {
-    font-size: 40px;
-    text-align: center;
-}
-
 .about_page_sub {
     display: flex;
     flex-direction: row;
@@ -84,19 +78,42 @@ h1 {
     margin-right: 30px;
 }
 
-.interests, .experience {
+.interests, 
+.experience {
     width: 48%;
     padding: 2%;
     border-radius: 0.5rem;
     background-color: rgb(149, 134, 245);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.interests p,
-.interests ul {
-    margin-left: 100px;
+.programming,
+.tools,
+.design,
+.jobs,
+.intern,
+.extra {
+    width: 80%;
+    background: white;
+    border-radius: 0.25rem;
+    padding: 0 20px;
+    margin-bottom: 20px;
 }
 
-.experience p,
-.experience ul {
-    margin-left: 70px;
+.programming p,
+.tools p,
+.design p,
+.jobs p,
+.intern p,
+.extra p {
+    color: rgb(149, 134, 245);
+}
+
+.interests h3,
+.experience h3 {
+    font-size: 40px;
+    text-align: center;
 }
