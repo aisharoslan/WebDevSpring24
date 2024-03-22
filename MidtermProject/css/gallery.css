@@ -58,6 +58,7 @@ div.hero {
     height: auto;
     border: 15px solid black;
     border-bottom-width: 60px;
+    max-height: 500px;
 }
 
 .polaroid p {
@@ -131,6 +132,10 @@ div.hero {
     #nature,
     #portraits {
         font-size: 100px;
+    }
+
+    .polaroid img {
+        max-height: 250px;
     }
 
     .vertical img {
