@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>User Input Simple</title>
+    <script>
+      // lets write a function that changes the color of the H1 based on user input in a form
+      // make sure we don't try and grab any DOM elements with JS until the page has fully loaded!
+      // anonymous function - DOMContentLoaded only happens once - usually where we assign HTML elements to variables
+      document.addEventListener('DOMContentLoaded', function() {
+        // assign HTML elements to variables
+        // add event listeners to HTML elements
+        let myBtn = document.getElementById('changeBtn')
+        // console.log(myBtn.classList)
+        // DOMTokenList has specific functions - can't use sort/append etc on it like array but can convert it to array
+
+        // listening for a click - anonymous function
+        myBtn.addEventListener('click', pickAClass)
+      })
+
+      function pickAClass() {
+          // grab our user number input - name of input tag
+          let userN = document.getElementById('num')
+          // .value is what the user inputs
+          // console.log(typeof userN.value)
+          // type is string - all inputs is coming in as strings for HTML forms - JS will still do math with a string - so cast it as a number just for clarity
+          // but we don't want a string, let's parse it
+          let n = parseInt(userN.value) // now, it's a number
+          // console.log(typeof n)
+
+          // grab our H1 element and stoe it as a js variable
+          let h = document.getElementById('changeMe')
+          
+          // rather than having a laundry list of conditional statements, lets use a switch statement, n is the number version of userInput, this is the variable n, not a new parameter, so n can be 0,1,2,3
+          switch(n) {
+            case 0:
+              h.className = 'red'
+              break
+            case 1:
+              h.className = 'green'
+              break
+            case 2:
+              h.className = 'blue'
+              break
+            case 3:
+              h.className = 'purple'
+              break
+            default:
+              // this is where you put the "None of the Above" option, you may never hit this case, but you need to define it!
+              break
+          }
+        }
+    </script>
+    <style>
+      h1 {
+        text-transform: uppercase;
+      }
+
+      .red {
+        color: red;
+      }
+
+      .green {
+        color: #00ff00;
+      }
+
+      .blue {
+        color: rgba(0, 0, 200, 0.7);
+      }
+
+      .purple {
+        color: rgb(200, 0, 255);
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="changeMe">Get user input</h1>
+    <form>
+      <fieldset>
+        <legend>Pick a number between 0 and 3</legend>
+        <!-- 'for' in label must match 'name' it's labeling -->
+        <label for="num">0-3</label>
+        <!-- name is good for databases/gets sent to api or smth -->
+        <!-- can also add step="0.01", by default step is 1 -->
+        <input type="number" name="num" id="num" min="0" max="3" step="1" placeholder="1"/>
+        <!-- based on refreshing - but on REACT - x lose everything -->
+        <!-- num=3 sent to API -->
+        <button type="button" id="changeBtn" class="btnClass">Click to change the color class of the H1</button>
+      </fieldset>
+    </form>
+  </body>
+</html>

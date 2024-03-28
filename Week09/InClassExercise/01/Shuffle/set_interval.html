@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>setInterval</title>
+    <script>
+      let counter = 0;
+
+      // good for like calling APIs regularly etc
+
+      // why don't we need a DOMContentLoaded here?
+      function intervalTest() {
+        let p = document.getElementById('timeElapsed')
+        p.innerHTML = counter
+        counter += 5
+      }
+
+      // call function directly on the browser window instead of an event listener, and using set interval
+      // 500 ms - once every half a second, 1000 is 1s
+      window.setInterval(intervalTest, 500)
+
+      // how might we stop this? take a look at clearInterval()
+      // what if we want something to happen delayed (after a delay, e.g. 5s after a click) - between the click and the thing happening  - check out setTimeout()
+    </script>
+  </head>
+  <body>
+    <p id="timeElapsed"></p>
+  </body>
+</html>
