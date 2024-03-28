@@ -88,7 +88,7 @@
             // loop through all of the inputs in our list and find the input with checked=true
             for (var i = 0; i < arrTip.length; i++) {
                 if (arrTip[i].checked) {
-                    // is the value a string or float type?
+                    // is the value a string or float type? string type - so need to cast to float but js honestly x care but be careful
                     percentage = arrTip[i].value
                     console.log(typeof percentage)
                     // once we find the checked one, we can exit our loop because there's no point in continuing
