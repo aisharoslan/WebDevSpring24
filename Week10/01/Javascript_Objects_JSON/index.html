@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JS Objects and JSON</title>
+    <script type="text/javascript">
+      // initialize a new object and store it as a variable named customer
+      const customer = {
+        name: 'Tony',
+        age: 23,
+        married: false,
+        pets: ['dog', 'cat', 'iguana'],
+        siblings: [
+          {name: 'Mary', age: 32, married: true},
+          {name: 'Billy', age: 16, married: false},
+        ],
+      }
+
+      // what if we wanna post this JS to a DB or hit a url with it - wanna send this JS object as a JSON object - send this data elsewhere
+      // sometimes we need to convert a JS object we built ourselves into JSON for sharing
+      // we do this with JSON.stringify() -> it basically means putting in strings into each key, e.g. name -> 'name', so pass in the object we want to stringify into JSON
+      // stringification (JS Object -> JSON)
+      const customerJSON = JSON.stringify(customer)
+      console.log(customerJSON)
+
+      // somtimes we receive some JSON object and need to convert it to an object (JSON -> JS Object)
+      const customerObject = JSON.parse(customerJSON)
+      console.log(customerObject)
+
+      // python/flask has jsonify - maybe same as stringify 
+
+      // // another method for converting JSON to JS Objects
+      // const anotherObject = customerJSON.json()
+      // console.log(anotherObject)
+
+      // // Modify the customer object:
+
+      // // Change Tony's Name
+      // console.log(customer.name) // Tony
+      // customer.name = 'Anthony'
+      // console.log(customer.name) // Anthony
+
+      // // add a new property defining the customers eyeColor - use camelCase!
+      // customer.eyeColor = 'green'
+
+      // // add the pets and siblings properties to both Mary and Billy
+      // customer.siblings[0].pets = ['snail', 'spider']
+      // customer.pets.push('chicken')
+      // console.log(customer) 
+
+      // // Add an Tony's location, be sure to include the fields: houseNumber, street name, town, city
+
+      // // Log the following:
+      // // Mary's marrital status
+      // // dot notation
+      // console.log(customer.siblings[0].married)
+      // // bracket notation
+      // console.log(customer['siblings'][0]['married'])
+
+      // // Tony's age
+      // console.log(customer.age)
+
+      // // All of Tony's pets
+      // for (var i = 0; i < customer.pets.length; i++) {
+      //   console.log(customer.pets[i])
+      // }
+
+    </script>
+  </head>
+  <body></body>
+</html>
