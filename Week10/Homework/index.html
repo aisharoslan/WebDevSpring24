@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript Function Demo</title>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchJoke()
+                .then((data) => {
+                    renderJokeAnswer(data)
+                    document.querySelector('#setup').innerHTML = data.question
+                })
+                .catch((error) => {
+                    console.error(`Woah Error!`, error)
+                })
+
+            fetchDog()
+                .then((data) => {
+                    renderDog(data)
+                })
+                .catch((error) => {
+                    console.error(`Woah Error!`, error)
+                })
+
+            let btn = document.getElementById('btn')
+            btn.addEventListener('click', changeAnswer)
+        })
+
+        const changeAnswer = () => {
+            let elem = document.getElementById("punchline")
+            let box = document.getElementById("btn")
+            if (elem.classList.contains('redacted-script-regular')) {
+                elem.classList.remove('redacted-script-regular')
+                elem.classList.add('poppins-regular')
+                box.innerHTML = 'Hide!'
+                box.style.backgroundColor = 'red'
+            } else {
+                elem.classList.remove('poppins-regular')
+                elem.classList.add('redacted-script-regular')
+                box.innerHTML = 'Reveal!'
+                box.style.backgroundColor = 'blue';
+            }
+        }
+
+        const JOKE_URL = `https://official-joke-api.appspot.com/random_joke`
+        const DOG_URL = `https://dog.ceo/api/breeds/image/random`
+
+        const fetchJoke = async () => {
+            const response = await fetch(JOKE_URL)
+            const result = await response.json()
+            const {setup, punchline} = result
+            return {question: setup, answer: punchline}
+        }
+
+        const fetchDog = async () => {
+            const response = await fetch(DOG_URL)
+            const result = await response.json()
+            const {message} = result
+            return {link: message}
+        }
+
+        const renderJokeAnswer = (data) => {
+            const jokeAns = document.getElementById('punchline')
+            jokeAns.append(data.answer)
+        }
+
+        const renderDog = (data) => {
+            const parent = document.getElementById('image')
+            const pic = `<img src="${data.link}" />`
+            parent.insertAdjacentHTML('afterbegin', pic)
+        }
+
+        const randNumRange = (min, max) => {
+            var rn = Math.round(Math.random() * (max - min) + min)
+            return rn
+        }
+        
+        const randomColor = () => {
+            const randomColor = `rgb(${randNumRange(0, 255)} ${randNumRange(0, 255)} ${randNumRange(0, 255)})`;
+            return randomColor
+        }
+
+        const changeBckgrd = () => {
+            let elem = document.getElementById("changeColorInterval")
+            elem.style.backgroundColor = randomColor()
+        }
+
+        window.addEventListener('resize', function(){
+            let elem = document.getElementById("changeColor")
+            elem.style.backgroundColor = randomColor()
+        })
+
+        window.setInterval(changeBckgrd, 800)
+    </script>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Manrope:wght@200..800&family=Poppins&family=Redacted+Script:wght@300;400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+        .redacted-script-regular {
+            font-family: "Redacted Script", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .poppins-regular {
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        img {
+            width: 100%;
+            max-height: 60vh;
+        }
+
+        .organize {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .btnClass {
+            width: 20%;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 1rem;
+            border: 1px solid rgb(0, 0, 0);
+            margin: 10px;
+            background-color: blue;
+        }
+
+        .textbox {
+            width: 50%;
+            margin: 10px;
+            padding: 0 2rem;
+            background-color: rgba(241, 241, 241, 0.762);
+            border-radius: 1rem;
+            border: 1px solid rgb(0, 0, 0);
+        }
+        
+        .text {
+            text-align: center;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="organize">
+        <div id="image"></div>
+        <div class="textbox" id="changeColor">
+            <p class="poppins-regular text" id="setup"></p>
+        </div>
+        <div class="textbox" id="changeColorInterval">
+            <p class="redacted-script-regular text" id="punchline"></p>
+        </div>
+        <button type="button" id="btn" class="btnClass">Start</button>
+    </div>
+  </body>
+</html>
