@@ -4,6 +4,62 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Geolocation</title>
+    <script type="text/javascript">
+      let loc // MUST ASSIGN VARIABLE if const, so we use let!
+
+      // all built into the browser like console, document, window etc, this is navigator
+      document.addEventListener('DOMContentLoaded', () => {
+        loc = document.getElementById('location')
+        getLocation()
+      })
+      
+      // function getLocation() {} // exact same thing
+      const getLocation = () => {
+        // check if your browser supports geolocation
+        // use this check if there's an error or API URL wrong etc - must always display something on failure
+        if (navigator.geolocation && navigator.geolocation.getCurrentPosition) {
+          // geolocation exists and so does the function we need to call to find the current location 
+          // a function in the browser that RETURNS a position object of where ur laptop is - needs to know where it goes
+          // param1: what callback function to send to - it'll return the position object to the setPosition
+          // if we have an error - we send it to the showError function to handle it
+          navigator.geolocation.getCurrentPosition(setPosition, showErrors)
+        } else {
+          // no geolocation, we should display some sort of message to the user
+          alert('Your browser does not support geolocation.')
+        }
+      }
+
+      // get a position object if succeed
+      const setPosition = (position) => {
+        // console.log(position.coords.latitude)
+        // console.log(position.coords.longitude)
+
+        const lat = position.coords.latitude
+        const lon = position.coords.longitude
+
+        loc.innerHTML = `<p>Latitude: ${lat} <br /> Longitude: ${lon}</p>`
+      }
+
+      // get an error object if fail
+      const showErrors = (error) => {
+        console.log(error)
+        switch (error.code) {
+          case error.PERMISSION_DENIED: 
+            // need to pull out loc const into global
+            loc.innerHTML = 'User denied the request for Geolocation'
+            break
+          case error.POSITION_UNAVAILABLE: 
+            loc.innerHTML = 'Location information is unavailable'
+            break
+          case error.TIMEOUT: 
+            loc.innerHTML = 'The request to get user location timed out'
+            break
+          case error.UNKNOWN_ERROR: 
+            loc.innerHTML = 'An unknown error occurred.'
+            break
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="location">
@@ -11,3 +67,7 @@
     </div>
   </body>
 </html>
+
+<!-- DON'T PUBLISH API KEY!! CONNECTED TO credit card -->
+<!-- local storage and location -->
+<!-- google maps API wooo -->
