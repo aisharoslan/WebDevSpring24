@@ -75,7 +75,7 @@
             var rn = Math.round(Math.random() * (max - min) + min)
             return rn
         }
-        
+
         const randomColor = () => {
             const randomColor = `rgb(${randNumRange(0, 255)} ${randNumRange(0, 255)} ${randNumRange(0, 255)})`;
             return randomColor
@@ -120,11 +120,6 @@
             align-items: center;
         }
 
-        .buttons {
-            display: flex;
-            flex-direction: column;
-        }
-
         .btnClass {
             width: 20%;
             padding: 1rem;
@@ -133,6 +128,7 @@
             border: 1px solid rgb(0, 0, 0);
             margin: 10px;
             background-color: blue;
+            color: white;
         }
 
         .textbox {
