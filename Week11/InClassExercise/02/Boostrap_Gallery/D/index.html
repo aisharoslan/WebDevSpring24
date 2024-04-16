@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
+    />
+    <!-- icon link -->
+    <title>Bootstrap Slider</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- pretty big file - can put at bottom of body tag -->
+
+    <!-- different bootstrap versions are not compatible with each other -->
+    <!-- just don't go backwards, keep upgrading and going forward until first number change -->
+    <style>
+      /* instead of doing this, can assign class to body! */
+      /* body {
+        margin: 0;
+        padding: 0;
+      } */
+      /* div where data-theme is dark - css selector*/
+      /* div[data-theme="dark"] {} */
+
+      /* OVERWRITING - must specify with target!! bc this is what bootstrap uses and it's 10pts more than without [ ] */
+      .carousel-indicators [data-bs-target] {
+        background-color: transparent;
+        width: 20px;
+        height: 35px;
+        border-radius: 50%;
+        color: yellow;
+        /* need text-indent to be 0 so that whatever in the button tag fly off the page - so need to turn that off */
+        text-indent: 0;
+        font-size: 30px;
+      }
+
+      .carousel-caption {
+        background-color: rgb(0, 0, 0, 0.2);
+      }
+
+      /* cause don't wanna overwrite all h5, just for captions */
+      .carousel-caption h5 {
+        text-transform: uppercase;
+        /* horizontal vertical blur color */
+        /* fuzzy darker background */
+        text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .carousel-caption p {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <!-- p-0 is padding 0, m-0 is margin 0-, border 0 -->
+  <body class="p-0 m-0 border-0">
+    <!-- bootstrap is good for non-designers and for quick building -->
+    <!-- BOOTSTRAP NAVBAR -->
+    <!-- navbar expand large, background dark -->
+    <!-- navbar-expand-lg, -xs, -s, -m, lg, etc - it'll expand when we hit our large breakpoint it's like a media query, we just have a hamburger until we reach it -->
+    <!-- data- attributes are custom attributes we make up, bs is bootstrap  attribute is theme - dark -->
+    <!-- so everything wrapped inside this div is dark mode -->
+    <!-- must SPECIFY THEME TO BE DARK, if not u get smth like black text on a dark bckgrd, so bg-dark has to come with a dark theme! -->
+    <div class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+      <!-- mobile first- all default styles are written for phone and we add media queries as screen gets bigger -->
+      <!-- if desktop first - then big to small -->
+      <!-- breakpoints - small, medium, large, jumbo, there r containers with max width and centred - margin: 0 auto, container-fluid means 100% width all the time! it just means full width -->
+      <div class="container-fluid">
+        <!-- navbar-brand - going in navbar and will be logo - so give it a certain font etc - pick color based on bootstrap theme -->
+        <a href="#" class="navbar-brand">Nicolas Cage Free Eggs</a>
+        <!-- mobile nav hamburger menu - it'll expand and collapse nav when visible, we're toggling the class collapse basically with the button, then u need target cause u need to know what u're collapsing -->
+        <!-- data-bs-target - are ur own id names -->
+        <!-- screen reader is reading html - this is expanded by default - we don't want so make it false, aria-label is like alt in img -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="#navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle Navigation"
+        >
+          <!-- it'll just insert an icon -->
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- collapse by default cause mobile first design, navbar-collapse just means collapsible navbar look, collapse is a class to toggle, justify content to flex end - menu on right, logo on left -->
+        <div
+          id="navbarNavDropdown"
+          class="collapse navbar-collapse justify-content-end"
+        >
+          <!-- px-4 -> padding on x direction (L & R) - spacing factor of 4, so spacing factor * 1.5 -->
+          <ul class="navbar-nav align-self-end px-4">
+            <li class="nav-item">
+              <a href="#" class="nav-link active" aria-current="page"
+                >Chickens</a
+              >
+            </li>
+            <!-- can only choose 1 active, the aria-current only for the one with active -->
+            <li class="nav-item">
+              <a href="#" class="nav-link">Eggs</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Ducks</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                class="nav-link dropdown-toggle"
+                >Breeds</a
+              >
+              <!-- the end is so that dropdown aligns with the end of the navbar item and not the start of it -->
+              <!-- make sure ID matches!! between targets etc -->
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="#">Americana</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Mille Fleur</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Silkie</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Seabright</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- END BOOTSTRAP NAVBAR -->
+    <!-- CAROUSEL -->
+    <!-- parent class for nesting -->
+    <!-- can do fade and autoplay too - ton of things! -->
+    <!-- if u had another slideshow, make sure it's different ID -->
+    <div id="chickenCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- INDICATORS (the dashes at the bottom)-->
+      <!-- THESE ARE NOT WORKING - LOOK AT HER UPLOADED FILE PLS AISHA DON'T FORGET  -->
+      <div class="carousel-indicators">
+        <!-- data-bs starts counting at 0 but label starts at 1 -->
+        <button
+          type="button"
+          data-bs-target="#chickenCarousel"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        >
+          <!-- i for icon - this is what that link was for - bi is bootstrap icon -->
+          <i class="bi-alarm"></i>
+        </button>
+      </div>
+      <!-- remove aria-current and remove active class -->
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#chickenCarousel"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        >
+          <i class="bi-alarm"></i>
+        </button>
+      </div>
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#chickenCarousel"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        >
+          <i class="bi-alarm"></i>
+        </button>
+      </div>
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#chickenCarousel"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        >
+          <i class="bi-alarm"></i>
+        </button>
+      </div>
+      <!-- END INDICATORS -->
+
+      <!-- BEGIN IMAGE SLIDES -->
+      <div class="carousel-inner">
+        <!-- update src and alt! and remove active for the rest -->
+        <div class="carousel-item active">
+          <!-- display block and width 100% -->
+          <img
+            src="img/chicken1.jpeg"
+            class="d-block w-100"
+            alt="you should definitely fill this out for each slide"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Are you sleeping through this?</h5>
+            <p>
+              Sorry, I promise next week we will do more copy paste and less
+              talky talky with the class names.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <!-- display block and width 100% -->
+          <img
+            src="img/chicken2.jpeg"
+            class="d-block w-100"
+            alt="you should definitely fill this out for each slide"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Another Chicken?</h5>
+            <p>
+              This is just some placeholder text different than the first slide
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <!-- display block and width 100% -->
+          <img
+            src="img/chicken3.jpeg"
+            class="d-block w-100"
+            alt="you should definitely fill this out for each slide"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Another Chicken 3</h5>
+            <p>
+              This is just some placeholder text different than the first slide
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <!-- display block and width 100% -->
+          <img
+            src="img/chicken2.jpeg"
+            class="d-block w-100"
+            alt="you should definitely fill this out for each slide"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Another Chicken 4</h5>
+            <p>
+              This is just some placeholder text different than the first slide
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- END IMAGE SLIDES -->
+
+      <!-- PREV NEXT BUTTONS -->
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#chickenCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <!-- this is what screen reader will read -->
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#chickenCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <!-- this is what screen reader will read -->
+        <span class="visually-hidden">Next</span>
+      </button>
+      <!-- END PREV NEXT BUTTONS -->
+    </div>
+    <!-- END CAROUSEL -->
+  </body>
+</html>
