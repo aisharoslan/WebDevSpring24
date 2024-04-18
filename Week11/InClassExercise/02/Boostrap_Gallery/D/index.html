@@ -142,7 +142,11 @@
     <!-- parent class for nesting -->
     <!-- can do fade and autoplay too - ton of things! -->
     <!-- if u had another slideshow, make sure it's different ID -->
-    <div id="chickenCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div
+      id="chickenCarousel"
+      class="carousel slide carousel-fade"
+      data-bs-ride="carousel"
+    >
       <!-- INDICATORS (the dashes at the bottom)-->
       <!-- THESE ARE NOT WORKING - LOOK AT HER UPLOADED FILE PLS AISHA DON'T FORGET  -->
       <div class="carousel-indicators">
@@ -158,9 +162,7 @@
           <!-- i for icon - this is what that link was for - bi is bootstrap icon -->
           <i class="bi-alarm"></i>
         </button>
-      </div>
-      <!-- remove aria-current and remove active class -->
-      <div class="carousel-indicators">
+        <!-- remove aria-current and remove active class -->
         <button
           type="button"
           data-bs-target="#chickenCarousel"
@@ -169,8 +171,6 @@
         >
           <i class="bi-alarm"></i>
         </button>
-      </div>
-      <div class="carousel-indicators">
         <button
           type="button"
           data-bs-target="#chickenCarousel"
@@ -179,8 +179,6 @@
         >
           <i class="bi-alarm"></i>
         </button>
-      </div>
-      <div class="carousel-indicators">
         <button
           type="button"
           data-bs-target="#chickenCarousel"
