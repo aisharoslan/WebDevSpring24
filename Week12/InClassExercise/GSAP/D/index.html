@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Hello GSAP Tweens</title>
 
-    <style type="text/css" media="screen"></style>
+    <style type="text/css" media="screen">
+      #sb {
+        position: absolute;
+        top: 500px;
+        left: 0;
+      }
+    </style>
   </head>
   <body>
     <img src="./img/soccer-ball.png" id="sb" />
@@ -21,8 +27,56 @@
       Older free without subscription versions
       https://github.com/greensock/GSAP
     -->
+    <!-- load at the bottom of body tag - to avoid waiting for document wait load -->
+    <!-- always load Greensock before own JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <!-- Our Script using GSAP Library Functions -->
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+      // grab the soccer ball as a var so we can "kick it"
+      // returns first element that matches it
+      const sb = document.getElementById("sb");
+      // another way to do this
+      // const sb = document.querySelector('#sb') // could pass in #sb to .to()
+
+      // starting state TO somewhere else
+      // where we want to animate TO
+      // our arguments are:
+      // what we want to animate, how long we want it to take (in seconds), and then the options object (passed in as key-value pairs, e.g. 800 (in pixels), it's already 500 down, so it'll be -500 up), up left is -ve, down right is +ve, 720 deg
+      gsap.to(sb, 2, {
+        x: 800,
+        y: -500,
+        rotation: 720,
+        scale: 0.5,
+        delay: 0.5, // after page loads
+        ease: "elastic.out",
+      });
+
+      // grabs everything with class name bball, so need the selectors
+      // need delay 2 so that it starts after the sb finishes!
+      gsap.to(".bball", 1, {
+        y: 500,
+        rotation: 360,
+        delay: 2, // after page loads
+        ease: "bounce.out",
+        stagger: {
+          // stagger each by 0.5s in between each one
+          each: 0.5,
+        },
+      });
+
+      // if use const, ORDER MATTERS, if use normal func, it doesn't matter cause it'll be pushed up, but with const, it has to be defined before hand
+      const imDone = () => {
+        alert("I'm done!!!");
+      };
+
+      // grab everything, anything with id #sb and class bball, separated by commas, combined in 1 string quotes
+      // opacity to animate to 0
+      // onComplete fires a callback function when the animation completes
+      // function imDone() {}
+      gsap.to("#sb, .bball", 5, { opacity: 0, delay: 10, onComplete: imDone });
+
+      // .from() - from somewhere
+      // .fromto() - from somewhere to somewhere
+    </script>
   </body>
 </html>
