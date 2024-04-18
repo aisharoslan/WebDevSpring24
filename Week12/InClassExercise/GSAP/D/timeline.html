@@ -78,6 +78,9 @@
           )
           .to(progress, 0.2, { opacity: 0, top: -10 }); // duration() is a function - it'll take the timeline duration - will be calculated for us, transform origin is centered by default, so left makes it load from left - there's a special 4th property for the progress bar to start at the beginning, can define which second in timeline u wanna start loading this
       });
+      // .pause, resume, seek etc - can add to buttons as event listeners
+      // they're all css or special properties that greensock has added - super powerful!
+      // scrolltrigger - once something comes into view
     </script>
   </body>
 </html>
