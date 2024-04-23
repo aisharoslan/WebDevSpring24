@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Elevator Scrolling Example</title>
+    <style type="text/css" media="screen">
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        /* 40px top btm, 0 left right */
+        margin: 40px 0;
+        /* extra space so that can overshoot and come back */
+        padding-top: 100px;
+        background-color: black;
+        color: white;
+      }
+
+      #main {
+        /* to center it */
+        margin: 0 auto;
+        width: 800px;
+      }
+
+      section {
+        /* top right bottom left */
+        padding: 20px 0 80px 0;
+        /* whole view width */
+        height: 1000px;
+      }
+
+      section h2 {
+        font-size: 48px;
+        /* so that goes end-to-end as compared to text-decoration underline */
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 20px;
+      }
+
+      ul {
+        position: fixed;
+        top: 40%;
+        right: 0;
+        list-style-type: none;
+      }
+
+      li {
+        width: 30px;
+        padding: 10px;
+        margin-bottom: 1px;
+        color: #ccc;
+        /* to start */
+        border-left: 10px solid #333;
+        /* to tell user it's clickable since it's not <a> tag */
+        cursor: pointer;
+        /* HAS AN EFFECT- so cool */
+        transition: all 1s;
+      }
+
+      .active {
+        color: #fff;
+        border-left: 20px solid #fff;
+        /* expand a little vertically but text centred */
+        line-height: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- elevator buttons -->
+    <ul>
+      <!-- <li id="floor5Btn" data-scrollpos="140">5</li> -->
+      <li id="floor5Btn">5</li>
+      <li id="floor4Btn">4</li>
+      <li id="floor3Btn">3</li>
+      <li id="floor2Btn">2</li>
+      <li id="floor1Btn">1</li>
+    </ul>
+
+    <!-- floors -->
+    <div id="main">
+      <section id="floor5Panel">
+        <h2>Floor 5</h2>
+      </section>
+
+      <section id="floor4Panel">
+        <h2>Floor 4</h2>
+      </section>
+
+      <section id="floor3Panel">
+        <h2>Floor 3</h2>
+      </section>
+
+      <section id="floor2Panel">
+        <h2>Floor 2</h2>
+      </section>
+
+      <section id="floor1Panel">
+        <h2>Floor 1</h2>
+      </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
+    <script type="text/javascript">
+      // greensock accepts anything like u would from a queryselector - can select things like that
+      // wait for the DOM content to load before we assign any elements to variables or add event listeners
+      // wait for DOM to load
+      document.addEventListener("DOMContentLoaded", () => {
+        // make all of our content fade in on load
+        // selecting body tag, take 1s, add opacity 0 (original state)
+        gsap.from("body", 1, { opacity: 0 });
+        // make our elevator buttons zoom in from the right (-500 is off the page from right to where it needs to be)
+        gsap.from("ul", 1, { right: -500, delay: 0.5 });
+
+        // grab each elevator button by its ID and store them as separate variables
+        const floor1Btn = document.getElementById("floor1Btn");
+        const floor2Btn = document.getElementById("floor2Btn");
+        const floor3Btn = document.getElementById("floor3Btn");
+        const floor4Btn = document.getElementById("floor4Btn");
+        const floor5Btn = document.getElementById("floor5Btn");
+
+        // we need let so that can redefine it to smth else
+        let navButtons = document.getElementsByTagName("LI");
+        // console.log(navButtons); // get a HTMLCollection w/5 elements indexed and also names for them, item & length & namedItem - not the same as an array - no append push pop etc
+        // why does this look insane and redundant? bc it's a HTML collection - x hv access to func like in arrays
+        // cast the collection into an array so we have access to all of our array methods - we can still index w/o array but we can't push etc
+        navButtons = [].slice.call(navButtons);
+        // takes HTMLCollection, take the first 5 with the index and adding them to the array
+        console.log(navButtons);
+
+        // add the active class on mouseenter
+        // looping thru navButtons and we call each of them button
+        navButtons.forEach((button) => {
+          button.addEventListener("mouseenter", function () {
+            // we call each button this, className accessible from gsap - like a transition - tween with active class
+            gsap.to(this, { className: "active", duration: 1 });
+          });
+        });
+
+        navButtons.forEach((button) => {
+          button.addEventListener("mouseleave", function () {
+            // we call each button this, className accessible from gsap - like a transition - tween with active class
+            gsap.to(this, { className: "", duration: 1 });
+          });
+        });
+        // client bounding rect(rectangle) - builtin func on js to get position
+        // set the scroll position to the top of each floor section
+        // can get top, left, right etc
+        // need to store them in buttons as attribute to know how much to scroll down - data-scrollpos attr
+        console.log(
+          document.querySelector("#floor1Panel").getBoundingClientRect().top
+        );
+
+        // assign a HTML5 data-attribute to each of our buttons based on the offsets of each floor
+        // takes 2 arg, what attr, and what val, there's also a getAttribute
+        floor1Btn.setAttribute(
+          "data-scrollpos",
+          document.querySelector("#floor1Panel").getBoundingClientRect().top
+        );
+        floor2Btn.setAttribute(
+          "data-scrollpos",
+          document.querySelector("#floor2Panel").getBoundingClientRect().top
+        );
+        floor3Btn.setAttribute(
+          "data-scrollpos",
+          document.querySelector("#floor3Panel").getBoundingClientRect().top
+        );
+        floor4Btn.setAttribute(
+          "data-scrollpos",
+          document.querySelector("#floor4Panel").getBoundingClientRect().top
+        );
+        floor5Btn.setAttribute(
+          "data-scrollpos",
+          document.querySelector("#floor5Panel").getBoundingClientRect().top
+        );
+
+        // assign a function onclick to each of our navbuttons
+        navButtons.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            // pull out the scroll position from the data attribute
+            // navButtons -> btn -> this (the one that got clicked) - just renaming!
+            var myScrollPos = this.getAttribute("data-scrollpos");
+            console.log("POSITION", myScrollPos);
+
+            // scroll to position - scrolling our window - scrollTo is the plugin - not built in to gsap - need to make sure the plugin is imported too - elastic.out will overshoot and bounces a little
+            gsap.to(window, 3, { scrollTo: myScrollPos, ease: "elastic.out" });
+          });
+        });
+
+        // animate to the first floor on load, so initialFloor will store the top value 4540
+        var initialFloor = document
+          .getElementById("floor1Btn")
+          .getAttribute("data-scrollpos");
+
+        // will differ depending on where u're at when u load
+        gsap.to(window, {
+          scrollTo: initialFloor,
+          ease: "elastic.out",
+          duration: 1,
+        });
+
+        // scrollTrigger - when something is in view - there's an animation
+      });
+    </script>
+  </body>
+</html>

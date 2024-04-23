@@ -6,6 +6,47 @@
     <title>Local Storage</title>
   </head>
   <body>
-    <h1>Hello, World!</h1>
+    <h1>Hello, <span id="user">World</span>!</h1>
+    <!-- can hide/show things depending on localStorage -->
+    <!-- have access to location - don't hv to show - hv something in browser - doesn't go away until it clears - clear cache/history/cookies etc - to tell localStorage to clear -->
+    <form id="userInfo">
+      <!-- make for, name, and id the same! -->
+      <label for="firstName">What's your name?</label>
+      <input type="text" name="firstName" id="firstName" required />
+      <button type="submit" id="nameBtn">Submit!</button>
+    </form>
+    <button type="submit" id="clearBtn">Clear Current User</button>
+    <script type="text/javascript">
+      // sets user name based on form
+      const saveUser = () => {
+        const name = document.getElementById("firstName").value;
+        console.log(name);
+        localStorage.firstName = name;
+      };
+
+      // a function to clear out local storage
+      const clearLocalStorage = () => {
+        localStorage.clear(); // empties/clears local storage
+        window.location.reload(); // refreshes the page/window
+      };
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("nameBtn").addEventListener("click", (e) => {
+          // e.preventDefault(); // so that page doesn't reload on click since it's a submit type button
+          saveUser();
+        });
+
+        // kinda like passing in from flask url to the html
+        // it'll still remember until u clear
+        if (localStorage.firstName) {
+          document.getElementById("user").innerHTML = localStorage.firstName;
+        }
+
+        const btnClear = document.getElementById("clearBtn");
+        btnClear.addEventListener("click", clearLocalStorage);
+      });
+    </script>
   </body>
 </html>
+
+<!-- can come back if browser crash cause the localStorage stores it -->
