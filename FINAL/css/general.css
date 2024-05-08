@@ -146,6 +146,86 @@ li {
     font-size: 16px;
 }
 
+/* CONTACT MODAL */
+
+.btn {
+    color: rgb(91, 62, 254);
+}
+
+.intro_form {
+    color: #ccc;
+    margin-left: 35px;
+    font-size: 25px;
+    margin-right: 35px;
+}
+
+.modal {
+    background: rgb(31, 31, 32);
+}
+
+.modal-content {
+    background: rgb(0, 0, 0)
+}
+
+.modal-header {
+    border-bottom: none;
+    padding-left: 50px;
+    padding-bottom: 0;
+    padding-top: 40px;
+}
+
+#contactForm {
+    font-size: 30px;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+.subject {
+    padding-top: 30px;
+    margin-left: 2px;
+}
+
+.subject_title {
+    font-size: 22px;
+    padding-left: 0;
+}
+
+.btn-close {
+    color: #ccc;
+}
+
+.message_title {
+    font-size: 22px;
+    padding-top: 50px;
+}
+
+.modal-header .btn-close-icon {
+    color: #ccc;
+    font-size: 50px;
+    margin-left: 50%;
+}
+
+.intent {
+    margin-top: 10px;
+}
+
+.dismissal {
+    padding-top: 30px;
+    padding-left: 535px;
+}
+
+.close-btn {
+    background-color: #ccc;
+    color: rgb(31, 31, 32)
+}
+
+.send-btn {
+    background-color:rgb(91, 62, 254);
+    color: #ccc;
+}
+
 /* Phone Media Query */
 
 @media screen and (max-width: 768px) {
