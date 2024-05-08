@@ -1,5 +1,7 @@
 # Google Slides Midterm Project Proposal
 
+## Presentation Links
+
 [Final Project Proposal Slides](https://docs.google.com/presentation/d/1BKO_cohotmeqjDeiNgkTMKNbAG4EQRXyubT5JjQSLGc/edit?usp=sharing)
 
 [Final Project Presentation Slides](https://docs.google.com/presentation/d/1BdXIXGZmwV5feHg3zzhPy2uPEVykeNrXyOIuCDx82WY/edit?usp=sharing)
@@ -22,7 +24,7 @@
 - About Page (biography page about more specific information)
 - Contact Form (popup modal)
 
-## Other features:
+## Other features
 
 - Light mode on smaller screens
 - Go to top arrow on every page
