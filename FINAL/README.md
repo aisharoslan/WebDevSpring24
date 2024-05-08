@@ -2,6 +2,8 @@
 
 ## Presentation Links
 
+[Live Link to Website]()
+
 [Final Project Proposal Slides](https://docs.google.com/presentation/d/1BKO_cohotmeqjDeiNgkTMKNbAG4EQRXyubT5JjQSLGc/edit?usp=sharing)
 
 [Final Project Presentation Slides](https://docs.google.com/presentation/d/1BdXIXGZmwV5feHg3zzhPy2uPEVykeNrXyOIuCDx82WY/edit?usp=sharing)
@@ -28,7 +30,7 @@
 
 - Light mode on smaller screens
 - Go to top arrow on every page
-- Interactive quiz on About Page
+- Custom cursor for each page
 
 ## Skills/Libraries Used
 
@@ -39,3 +41,11 @@
 ## Notes:
 
 - For Mobile version, optimum sizing is at 768px. The website will be in light mode instead of dark mode to indicate it's in the mobile media query.
+
+## Future implementations
+
+- LocalStorage to store name variable from Form submission so that I can greet them somewhere
+- More animations with GSAP and using ScrollTo
+- Adding interactive quiz on About Me
+- Flow in dropdown menu instead of navbar (Reference: [Cool Dropdown](https://caffeinepost.com/))
+- Exploding skills once button clicked (on home page)

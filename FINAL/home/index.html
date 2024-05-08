@@ -170,10 +170,10 @@
     <!-- FADE-IN NAV BAR -->
     <div id="navBar">
       <ul>
-        <li><a href="index.html">home</a></li>
-        <li><a href="#">projects</a></li>
+        <li><a href="../home/index.html">home</a></li>
+        <li><a href="../projects/index.html">projects</a></li>
         <li><a href="../gallery/index.html">gallery</a></li>
-        <li><a href="#">about</a></li>
+        <li><a href="../about/index.html">about</a></li>
         <li><a href="#contact" data-bs-toggle="modal">contact</a></li>
       </ul>
     </div>
@@ -261,37 +261,44 @@
       </div>
     </div>
 
-    <div class="row">
-      <p class="skill_text outfit-regular text-start">Skills</p>
+    <div class="skills_box">
+      <div class="row">
+        <p class="skill_text outfit-regular text-start">Skills</p>
+      </div>
+      <div class="skills">
+        <div id="cplusplus">
+          <img src="../images/skills/c++.png" alt="C++" />
+        </div>
+        <div id="html">
+          <img src="../images/skills/html.png" alt="HTML" />
+        </div>
+        <div id="css">
+          <img src="../images/skills/css.png" alt="CSS" />
+        </div>
+        <div id="js">
+          <img src="../images/skills/javascript.png" alt="JavaScript" />
+        </div>
+        <div id="python">
+          <img src="../images/skills/python.png" alt="Python" />
+        </div>
+        <div id="github">
+          <img src="../images/skills/github.png" alt="GitHub" />
+        </div>
+        <div id="adobe">
+          <img src="../images/skills/adobe_cc.png" alt="Adobe CC" />
+        </div>
+        <div id="figma">
+          <img src="../images/skills/figma.png" alt="Figma" />
+        </div>
+        <div id="sql">
+          <img src="../images/skills/sql.png" alt="SQL" />
+        </div>
+      </div>
     </div>
-    <div class="skills">
-      <div id="cplusplus">
-        <img src="../images/skills/c++.png" alt="C++" />
-      </div>
-      <div id="html">
-        <img src="../images/skills/html.png" alt="HTML" />
-      </div>
-      <div id="css">
-        <img src="../images/skills/css.png" alt="CSS" />
-      </div>
-      <div id="js">
-        <img src="../images/skills/javascript.png" alt="JavaScript" />
-      </div>
-      <div id="python">
-        <img src="../images/skills/python.png" alt="Python" />
-      </div>
-      <div id="github">
-        <img src="../images/skills/github.png" alt="GitHub" />
-      </div>
-      <div id="adobe">
-        <img src="../images/skills/adobe_cc.png" alt="Adobe CC" />
-      </div>
-      <div id="figma">
-        <img src="../images/skills/figma.png" alt="Figma" />
-      </div>
-      <div id="sql">
-        <img src="../images/skills/sql.png" alt="SQL" />
-      </div>
+
+    <!-- UP BUTTON -->
+    <div class="upBtn">
+      <a href="#navBar"><img src="../images/arrows/arrow_up.png" id="up" /></a>
     </div>
 
     <!-- FOOTER  -->
@@ -313,6 +320,7 @@
         </a>
       </div>
     </div>
+
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
 
@@ -335,8 +343,27 @@
     <!-- OWN SCRIPT -->
     <script type="text/javascript">
       document.addEventListener("DOMContentLoaded", () => {
+        gsap.from("#navBar", 1, { opacity: 0, y: -100, delay: 0.5 });
         gsap.from(".name", 1, { x: 100, delay: 0.5, opacity: 0 });
         gsap.from(".logo", 1, { x: -100, delay: 0.5, opacity: 0 });
+
+        const myText = new SplitType("#myText");
+
+        gsap.to(".char", {
+          y: 0,
+          stagger: 0.05,
+          delay: 0.2,
+          duration: 0.1,
+        });
+
+        const myText2 = new SplitType("#myText2");
+
+        gsap.to(".char", {
+          y: 0,
+          stagger: 0.05,
+          delay: 0.4,
+          duration: 0.1,
+        });
       });
 
       gsap.registerPlugin(Draggable, ScrollTrigger);
@@ -358,30 +385,6 @@
         button.addEventListener("mouseleave", function () {
           gsap.to(this, { className: "", duration: 0.2 });
         });
-      });
-
-      const myText = new SplitType("#myText");
-
-      gsap.to(".char", {
-        y: 0,
-        stagger: 0.05,
-        delay: 0.2,
-        duration: 0.1,
-      });
-
-      const myText2 = new SplitType("#myText2");
-
-      gsap.to(".char", {
-        y: 0,
-        stagger: 0.05,
-        delay: 0.4,
-        duration: 0.1,
-      });
-
-      gsap.from("#navBar", 1, {
-        opacity: 0,
-        y: -100,
-        delay: 0.5,
       });
 
       gsap.set(".text__effect p", {
@@ -452,6 +455,17 @@
         return Math.floor(Math.random() * (1 + max - min) + min);
       }
 
+      const tml2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".skills_box",
+          start: "top bottom -= 700",
+          end: "bottom center -= 200",
+          scrub: true,
+        },
+      });
+
+      tml2.from(".skill_text", 0.5, { x: 100, opacity: 0 });
+
       let cplusplus = document.getElementById("cplusplus");
       let html = document.getElementById("html");
       let css = document.getElementById("css");
@@ -472,6 +486,16 @@
         logo.addEventListener("mouseout", () => {
           gsap.to(logo, { scale: 1, duration: 0.5 }); // Return to original scale on mouseout
         });
+      });
+
+      let upElem = document.getElementById("up");
+
+      upElem.addEventListener("mouseenter", function () {
+        gsap.to(upElem, { opacity: 1, duration: 0.5 });
+      });
+
+      upElem.addEventListener("mouseout", function () {
+        gsap.to(upElem, { opacity: 0.5, duration: 0.5 });
       });
     </script>
   </body>
