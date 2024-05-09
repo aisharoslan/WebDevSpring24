@@ -181,14 +181,54 @@
     <!-- SLIDE-IN LOGO AND NAME -->
     <div class="slide-in">
       <header class="name">
-        <h1 id="myText" class="outfit-black text-center">P R O J E C T S</h1>
-        <h4 id="myText2" class="outfit-regular text-center">by Aisha</h4>
+        <h1 id="myText" class="unbounded-light text-center">PROJECTS</h1>
+        <h4 id="myText2" class="unbounded-regular text-center">by Aisha</h4>
       </header>
     </div>
 
     <!-- UP BUTTON -->
     <div class="upBtn">
       <a href="#navBar"><img src="../images/arrows/arrow_up.png" id="up" /></a>
+    </div>
+
+    <!-- PROJECT CARDS -->
+    <div id="layout">
+      <div class="card">
+        <img src="../images/db/db1.png" />
+        <div class="mask db">
+          <h4 class="text-center">City Jail Database App</h4>
+          <p class="text-center">UI/UX, SQL, Python Flask, HTML/CSS/JS</p>
+          <p class="text-center">2024</p>
+          <button class="btn learn-btn">
+            <a href="../databases/index.html"> Learn More </a>
+            <span class="material-symbols-outlined"> arrow_outward </span>
+          </button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../images/ignite/igniteui.png" />
+        <div class="mask">
+          <h4 class="text-center">Ignite Mobile App</h4>
+          <p class="text-center">UI/UX, Figma, Adobe CC, Mobile Design</p>
+          <p class="text-center">2023</p>
+          <button class="btn learn-btn">
+            <a href="../ignite/index.html"> Learn More </a>
+            <span class="material-symbols-outlined"> arrow_outward </span>
+          </button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../images/groove/mag1.png" />
+        <div class="mask">
+          <h4 class="text-center">Groove Magazine</h4>
+          <p class="text-center">Adobe CC, Printed Design, Figma</p>
+          <p class="text-center">2023</p>
+          <button class="btn learn-btn">
+            <a href="../groove/index.html">Learn More</a>
+            <span class="material-symbols-outlined"> arrow_outward </span>
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- FOOTER  -->
@@ -235,7 +275,7 @@
       document.addEventListener("DOMContentLoaded", () => {
         gsap.from("#navBar", 1, { opacity: 0, y: -100, delay: 0.5 });
         gsap.from(".name", 1, { x: 100, delay: 0.5, opacity: 0 });
-        gsap.from(".logo", 1, { x: -100, delay: 0.5, opacity: 0 });
+
         const myText = new SplitType("#myText");
 
         gsap.to(".char", {
@@ -276,41 +316,6 @@
         opacity: 0,
       });
 
-      const tml = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".expertise",
-          start: "top bottom -= 700",
-          end: "bottom center -= 200",
-          scrub: true,
-        },
-      });
-
-      let boxes = document.querySelectorAll(".ex");
-      tml.from(".im", 0.5, { x: 100, opacity: 0 }).from(
-        boxes,
-        {
-          opacity: 0,
-          x: -100,
-          duration: 1,
-        },
-        0
-      );
-
-      boxes.forEach((box) => {
-        box.addEventListener("mouseover", () => {
-          gsap.to(box, 0.5, {
-            x: randomNumber(-100, 100),
-            y: randomNumber(-100, 100),
-            z: -1,
-            z: randomNumber(-100, 100),
-          });
-        });
-      });
-
-      function randomNumber(min, max) {
-        return Math.floor(Math.random() * (1 + max - min) + min);
-      }
-
       let upElem = document.getElementById("up");
 
       upElem.addEventListener("mouseenter", function () {
@@ -319,6 +324,25 @@
 
       upElem.addEventListener("mouseout", function () {
         gsap.to(upElem, { opacity: 0.5, duration: 0.5 });
+      });
+
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach((card, index) => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: card,
+            start: "top bottom",
+            end: "bottom center += 10%",
+            scrub: true,
+          },
+        });
+
+        tl.from(card, {
+          duration: 0.5,
+          y: 150,
+          opacity: 0,
+        });
       });
     </script>
   </body>

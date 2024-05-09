@@ -99,3 +99,44 @@ p {
 a.resume {
     display: block;
 }
+
+/* Phone Media Query */
+
+@media screen and (max-width: 768px) {
+    /* SLIDE IN GRAPHICS */
+    
+    .slide-in {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    header.intro {
+        margin: 0;
+    }
+
+    img#profile {
+        width: 30%;
+    }
+
+    #myText,
+    #myText2 {
+        text-align: center;
+    }
+    
+    /* SCROLL TEXT ANIMATION  */
+    
+    .sentence {
+        font-size: 25px;
+        color: rgb(16,16,16);
+        line-height: 30px;
+    }
+    
+    .contact {
+        color: rgb(16,16,16);
+    }
+  
+
+ }
+ 

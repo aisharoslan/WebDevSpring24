@@ -38,9 +38,16 @@
 - JS, HTML, CSS general skills
 - Bootstrap v5
 
+## Challenges
+
+- Using and positioning with GSAP and understanding the functions
+- Sizing/Formatting when overlapping styles between Bootstrap, CSS, and Internal Styles
+- Using Bootstrap's flexbox and container
+
 ## Notes:
 
 - For Mobile version, optimum sizing is at 768px. The website will be in light mode instead of dark mode to indicate it's in the mobile media query.
+- Please refresh when in mobile version because it can get a little weird.
 
 ## Future implementations
 
@@ -49,3 +56,4 @@
 - Adding interactive quiz on About Me
 - Flow in dropdown menu instead of navbar (Reference: [Cool Dropdown](https://caffeinepost.com/))
 - Exploding skills once button clicked (on home page)
+- Work Experience Timeline

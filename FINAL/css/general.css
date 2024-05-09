@@ -305,6 +305,125 @@ li {
         line-height: 20px;
         font-size: 16px;
     }
-   
- }
+
+    #up {
+        opacity: 0.3;
+        filter: invert(48%) sepia(13%) saturate(0%) hue-rotate(130deg) brightness(25%) contrast(80%);
+    }
+
+    /* FOOTER */
+    
+    .separator {
+        margin-left: 50px;
+        border-bottom: 1px solid rgba(75, 75, 75, 0.713);
+    }
+
+    .footer {
+        margin-left: 50px;
+    }
+    
+    .copyright {
+        margin-top: 20px;
+    }
+
+    .copyright h3 {
+        font-size: 25px;
+    }
+    
+    .socials {
+        width: 40%;
+        margin-right: 10px;
+    }
+
+    /* CONTACT MODAL */
+
+    .btn {
+        color: rgb(91, 62, 254);
+    }
+
+    .intro_form {
+        color: #ccc;
+        margin-left: 0;
+        font-size: 25px;
+        margin-right: 0;
+    }
+
+    .modal {
+        background: rgb(31, 31, 32);
+    }
+
+    .modal-content {
+        background: rgb(0, 0, 0);
+    }
+
+    .modal-title {
+        color: #ccc;
+    }
+
+    .modal-header {
+        border-bottom: none;
+        padding-left: 20px;
+        padding-bottom: 5px;
+        padding-top: 20px;
+    }
+
+    #contactForm {
+        font-size: 20px;
+    }
+
+    .modal-footer {
+        border-top: none;
+    }
+
+    .subject {
+        padding-top: 0;
+        margin-left: 0;
+    }
+
+    .subject_title {
+        font-size: 20px;
+        padding-left: 0;
+        color: #ccc;
+    }
+
+    .btn-close {
+        color: #ccc;
+    }
+
+    label {
+        color: #ccc;
+    }
+
+    .message_title {
+        font-size: 22px;
+        padding-top: 0;
+        color: #ccc;
+    }
+
+    .modal-header .btn-close-icon {
+        color: #ccc;
+        font-size: 40px;
+        margin-left: 230px;
+        margin-top: 0;
+    }
+
+    .intent {
+        margin-top: 10px;
+    }
+
+    .dismissal {
+        padding-top: 30px;
+        padding-left: 240px;
+    }
+
+    .close-btn {
+        background-color: #ccc;
+        color: rgb(31, 31, 32)
+    }
+
+    .send-btn {
+        background-color:rgb(91, 62, 254);
+        color: #ccc;
+    }
+}
  

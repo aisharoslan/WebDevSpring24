@@ -197,3 +197,54 @@ a {
     text-decoration: none;
     color: #ccc;
 }
+
+/* Phone Media Query */
+
+@media screen and (max-width: 768px) {
+    .slide-in {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    .logo {
+        width: 30%;
+    }
+
+    #myText,
+    #myText2 {
+        text-align: center;
+    }
+    
+    /* SCROLL TEXT ANIMATION  */
+    
+    .sentence {
+        font-size: 25px;
+        color: rgb(16,16,16);
+        line-height: 30px;
+    }
+    
+    .contact {
+        color: rgb(16,16,16);
+    }
+
+    /* IMAGE TEXT */
+    .fullwidth-image__text,
+    .fullwidth-image__text2,
+    .fullwidth-image__text3 {
+        left: 40%;
+        top: 30%;
+    }
+
+    .fullwidth-image__text3 {
+        top: 50%;
+    }
+
+    .fullwidth-image p,
+    .fullwidth-image2 p,
+    .fullwidth-image3 p {
+        max-width: 60ch;
+    }
+ }
+ 
