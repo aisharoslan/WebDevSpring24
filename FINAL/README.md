@@ -2,8 +2,6 @@
 
 ## Presentation Links
 
-[Live Link to Website]()
-
 [Final Project Proposal Slides](https://docs.google.com/presentation/d/1BKO_cohotmeqjDeiNgkTMKNbAG4EQRXyubT5JjQSLGc/edit?usp=sharing)
 
 [Final Project Presentation Slides](https://docs.google.com/presentation/d/1BdXIXGZmwV5feHg3zzhPy2uPEVykeNrXyOIuCDx82WY/edit?usp=sharing)
